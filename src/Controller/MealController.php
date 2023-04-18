@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Meal;
 use App\Form\MealType;
 use App\Repository\MealRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -66,13 +67,24 @@ class MealController extends AbstractController
         ]);
     }
 
-    #[Route('/meal{id}/delete', name: 'app_meal_delete', methods: ['POST'])]
-    public function delete(Request $request, Meal $meal, MealRepository $mealRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$meal->getId(), $request->request->get('_token'))) {
-            $mealRepository->remove($meal, true);
-        }
+    // #[Route('/meal{id}/delete', name: 'app_meal_delete', methods: ['POST'])]
+    // public function delete(Request $request, Meal $meal, MealRepository $mealRepository): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete'.$meal->getId(), $request->request->get('_token'))) {
+    //         $mealRepository->remove($meal, true);
+    //     }
 
-        return $this->redirectToRoute('app_meal_index', [], Response::HTTP_SEE_OTHER);
+    //     return $this->redirectToRoute('app_meal_index', [], Response::HTTP_SEE_OTHER);
+    // }
+
+    #[Route('/meal{id}/delete', name: 'app_meal_delete')]
+    public function delete(ManagerRegistry $doctrine, $id){
+        $em = $doctrine->getManager();
+        $meal = $doctrine->getRepository(Meal::class)->find($id);
+        $em->remove($meal);
+        
+        $em->flush();
+        
+        return $this->redirectToRoute('app_meal_index');
     }
 }

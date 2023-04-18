@@ -33,7 +33,7 @@
                 <td>
                     <a href="{{ path('app_meal_show', {'id': meal.id}) }}">show</a>
                     <a href="{{ path('app_meal_edit', {'id': meal.id}) }}">edit</a>
-                    {{ include('meal/_delete_form.html.twig') }}
+                    <button onclick="deleteswal('{{meal.id}}')" class="btn btn-danger">Delete</button>
                 </td>
             </tr>
         {% else %}
@@ -45,4 +45,7 @@
     </table>
 
     <a href="{{ path('app_meal_new') }}">Create new</a>
+{% endblock %}
+{% block js %}
+<script src='{{asset("js/delete.js")}}'></script>
 {% endblock %}
