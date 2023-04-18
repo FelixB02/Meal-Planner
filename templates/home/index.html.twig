@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
 <style>
@@ -8,13 +8,24 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <main>
+      <section class="no-parallax">
+        <h1>Parallax</h1>
+      </section>
+      <section class="parallax bg"></section>
+      <section class="no-parallax">
+        <h1>Pure CSS</h1>
+      </section>
+      
+      <section class="parallax bg"></section>
+      <section class="no-parallax">
+        <h1>Sick Right?</h1>
+      </section>
+    </main>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/Team_project/Meal-Planner/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/Team_project/Meal-Planner/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+
+
+  
+
 </div>
 {% endblock %}
