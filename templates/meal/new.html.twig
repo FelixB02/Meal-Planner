@@ -3,9 +3,11 @@
 {% block title %}New Meal{% endblock %}
 
 {% block body %}
+
+    <div class="container">
     <h1>Create new Meal</h1>
-
     {{ include('meal/_form.html.twig') }}
-
     <a href="{{ path('app_meal_index') }}">back to list</a>
+    </div>
+
 {% endblock %}
