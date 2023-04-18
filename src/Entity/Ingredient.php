@@ -18,7 +18,7 @@ class Ingredient
     #[ORM\Column(length: 50)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: nutrition::class, inversedBy: 'ingredients')]
+    #[ORM\ManyToMany(targetEntity: Nutrition::class, inversedBy: 'ingredients')]
     private Collection $fk_nutrition;
 
     #[ORM\OneToMany(mappedBy: 'fk_ingredient', targetEntity: IngredientMeal::class)]
@@ -48,14 +48,14 @@ class Ingredient
     }
 
     /**
-     * @return Collection<int, nutrition>
+     * @return Collection<int, Nutrition>
      */
     public function getFkNutrition(): Collection
     {
         return $this->fk_nutrition;
     }
 
-    public function addFkNutrition(nutrition $fkNutrition): self
+    public function addFkNutrition(Nutrition $fkNutrition): self
     {
         if (!$this->fk_nutrition->contains($fkNutrition)) {
             $this->fk_nutrition->add($fkNutrition);
@@ -64,7 +64,7 @@ class Ingredient
         return $this;
     }
 
-    public function removeFkNutrition(nutrition $fkNutrition): self
+    public function removeFkNutrition(Nutrition $fkNutrition): self
     {
         $this->fk_nutrition->removeElement($fkNutrition);
 

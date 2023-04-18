@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\User;
 use App\Repository\MealRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -36,7 +37,7 @@ class Meal
     #[ORM\Column]
     private ?int $cooking_time = null;
 
-    #[ORM\ManyToMany(targetEntity: user::class, inversedBy: 'meals')]
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'meals')]
     private Collection $fk_user;
 
     #[ORM\OneToMany(mappedBy: 'fk_monday', targetEntity: Week::class)]
@@ -142,14 +143,14 @@ class Meal
     }
 
     /**
-     * @return Collection<int, user>
+     * @return Collection<int, User>
      */
     public function getFkUser(): Collection
     {
         return $this->fk_user;
     }
 
-    public function addFkUser(user $fkUser): self
+    public function addFkUser(User $fkUser): self
     {
         if (!$this->fk_user->contains($fkUser)) {
             $this->fk_user->add($fkUser);
@@ -158,7 +159,7 @@ class Meal
         return $this;
     }
 
-    public function removeFkUser(user $fkUser): self
+    public function removeFkUser(User $fkUser): self
     {
         $this->fk_user->removeElement($fkUser);
 

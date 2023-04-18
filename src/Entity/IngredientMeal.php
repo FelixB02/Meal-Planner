@@ -16,13 +16,13 @@ class IngredientMeal
     #[ORM\Column(length: 50)]
     private ?string $amount = null;
 
-    #[ORM\ManyToOne(inversedBy: 'ingredientMeals')]
+    #[ORM\ManyToOne(inversedBy: 'IngredientMeals')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?meal $fk_meal = null;
+    private ?Meal $fk_meal = null;
 
-    #[ORM\ManyToOne(inversedBy: 'ingredientMeals')]
+    #[ORM\ManyToOne(inversedBy: 'IngredientMeals')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?ingredient $fk_ingredient = null;
+    private ?Ingredient $fk_ingredient = null;
 
     public function getId(): ?int
     {
@@ -41,24 +41,24 @@ class IngredientMeal
         return $this;
     }
 
-    public function getFkMeal(): ?meal
+    public function getFkMeal(): ?Meal
     {
         return $this->fk_meal;
     }
 
-    public function setFkMeal(?meal $fk_meal): self
+    public function setFkMeal(?Meal $fk_meal): self
     {
         $this->fk_meal = $fk_meal;
 
         return $this;
     }
 
-    public function getFkIngredient(): ?ingredient
+    public function getFkIngredient(): ?Ingredient
     {
         return $this->fk_ingredient;
     }
 
-    public function setFkIngredient(?ingredient $fk_ingredient): self
+    public function setFkIngredient(?Ingredient $fk_ingredient): self
     {
         $this->fk_ingredient = $fk_ingredient;
 
