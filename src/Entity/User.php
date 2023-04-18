@@ -51,16 +51,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    #[ORM\ManyToMany(targetEntity: Meal::class, mappedBy: 'fk_user')]
-    private Collection $meals;
-
     #[ORM\OneToMany(mappedBy: 'fk_user', targetEntity: Week::class)]
     private Collection $weeks;
 
+    #[ORM\OneToMany(mappedBy: 'fk_user', targetEntity: Meal::class)]
+    private Collection $meals;
+
     public function __construct()
     {
-        $this->meals = new ArrayCollection();
         $this->weeks = new ArrayCollection();
+        $this->meals = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -218,33 +218,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, Meal>
-     */
-    public function getMeals(): Collection
-    {
-        return $this->meals;
-    }
-
-    public function addMeal(Meal $meal): self
-    {
-        if (!$this->meals->contains($meal)) {
-            $this->meals->add($meal);
-            $meal->addFkUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMeal(Meal $meal): self
-    {
-        if ($this->meals->removeElement($meal)) {
-            $meal->removeFkUser($this);
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, Week>
      */
     public function getWeeks(): Collection
@@ -268,6 +241,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($week->getFkUser() === $this) {
                 $week->setFkUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Meal>
+     */
+    public function getMeals(): Collection
+    {
+        return $this->meals;
+    }
+
+    public function addMeal(Meal $meal): self
+    {
+        if (!$this->meals->contains($meal)) {
+            $this->meals->add($meal);
+            $meal->setFkUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMeal(Meal $meal): self
+    {
+        if ($this->meals->removeElement($meal)) {
+            // set the owning side to null (unless already changed)
+            if ($meal->getFkUser() === $this) {
+                $meal->setFkUser(null);
             }
         }
 

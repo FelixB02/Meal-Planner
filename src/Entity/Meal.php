@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Entity\User;
 use App\Repository\MealRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\User;
 
 #[ORM\Entity(repositoryClass: MealRepository::class)]
 class Meal
@@ -37,18 +37,17 @@ class Meal
     #[ORM\Column]
     private ?int $cooking_time = null;
 
-    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'meals')]
-    private Collection $fk_user;
-
     #[ORM\OneToMany(mappedBy: 'fk_monday', targetEntity: Week::class)]
     private Collection $weeks;
 
     #[ORM\OneToMany(mappedBy: 'fk_meal', targetEntity: IngredientMeal::class)]
     private Collection $ingredientMeals;
 
+    #[ORM\ManyToOne(inversedBy: 'meals')]
+    private ?User $fk_user = null;
+
     public function __construct()
     {
-        $this->fk_user = new ArrayCollection();
         $this->weeks = new ArrayCollection();
         $this->ingredientMeals = new ArrayCollection();
     }
@@ -143,30 +142,6 @@ class Meal
     }
 
     /**
-     * @return Collection<int, User>
-     */
-    public function getFkUser(): Collection
-    {
-        return $this->fk_user;
-    }
-
-    public function addFkUser(User $fkUser): self
-    {
-        if (!$this->fk_user->contains($fkUser)) {
-            $this->fk_user->add($fkUser);
-        }
-
-        return $this;
-    }
-
-    public function removeFkUser(User $fkUser): self
-    {
-        $this->fk_user->removeElement($fkUser);
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, Week>
      */
     public function getWeeks(): Collection
@@ -222,6 +197,18 @@ class Meal
                 $ingredientMeal->setFkMeal(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFkUser(): ?User
+    {
+        return $this->fk_user;
+    }
+
+    public function setFkUser(?User $fk_user): self
+    {
+        $this->fk_user = $fk_user;
 
         return $this;
     }
