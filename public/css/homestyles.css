@@ -1,53 +1,36 @@
-body {
-  margin: 0;
-  background: #111111;
-  font-family: "Euclid Circular A", "Poppins";
+body, html {
+  height: 90%;
 }
-
-main {
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  perspective: 2px;
-}
-
-section {
-  transform-style: preserve-3d;
-  position: relative;
-  height: 75vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.no-parallax {
-  background-color: #111111;
-  z-index: 999;
-}
-
 .parallax {
-  height: 50vh;
-}
-
-section h1 {
-  text-align: center;
-  font-size: 60px;
-}
-
-.parallax::after {
-  content: " ";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform: translateZ(-1px) scale(1.5);
-  background-size: 100%;
-  z-index: -1;
-}
-
-.bg::after {
-  background: url("image.jpg");
+  background-image: url("../pictures/home.png");
+  height: 100%; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
+
+ 
+}
+#p1{
+  height: 800px;
+
+  background: linear-gradient(0deg, rgba(240,234,228,0.2) 0%, rgba(221,241,202,0.3768907221091562) 0%, rgba(197,228,228,0) 100%);
+
+}
+
+.parallax1 {
+  background-image: url("../pictures/homepic.jpg");
+  height: 100%; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+
+#p2{
+  height: 800px;
+  background: rgb(240,234,228);
+  background: linear-gradient(0deg, rgba(240,234,228,1) 0%, rgba(221,241,202,0.3768907221091562) 0%, rgba(197,228,228,0) 100%);
+
 }
