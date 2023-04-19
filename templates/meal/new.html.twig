@@ -2,12 +2,16 @@
 
 {% block title %}New Meal{% endblock %}
 
+{% block stylesheets %}
+<link href="{{ asset('css/mealform.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
 {% block body %}
 
-    <div class="container">
+    <div class="container myform">
     <h1>Create new Meal</h1>
-    {{ include('meal/_form.html.twig') }}
-    <a href="{{ path('app_meal_index') }}">back to list</a>
+        {{ include('meal/_form.html.twig') }}
+        <a class="btn btn-success mybtn" href="{{ path('app_meal_index') }}">Meals</a>
     </div>
 
 {% endblock %}

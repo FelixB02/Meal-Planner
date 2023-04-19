@@ -3,12 +3,16 @@
 namespace App\Form;
 
 use App\Entity\Meal;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class MealType extends AbstractType
 {
@@ -16,20 +20,54 @@ class MealType extends AbstractType
     {
         
         $builder
-            ->add('name', null, array("attr" => ["class" => "form-control w-25", "placeholder" => "Write the Name of the Meal"]))
-            ->add('picture', FileType::class, array("attr" => ["class" => "form-control w-25", "placeholder" => "Write the Name of the Event"]))
-            ->add('category', ChoiceType::class, array("attr" => ["class" => "form-control w-25", "placeholder" => "Write the Name of the Event"], 'choices' =>[
+            ->add('name', TextType::class, [
+            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+            ])
+            ->add('picture', FileType::class, [
+            'label' => 'Picture (Image File)',
+
+            'mapped' => false,
+
+            'required' => false,
+
+            'constraints' => [
+                new File([
+                    'maxSize' => '1024k',
+                    'mimeTypes' => [
+                        'image/png',
+                        'image/jpg',
+                        'image/jpeg',
+                    ],
+                    'mimeTypesMessage' => 'Please upload a valid document',
+                ])
+            ],
+            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+            ])
+            ->add('category', ChoiceType::class, [
+            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
+            'choices' =>[
                 '' => null,
                 'Vegie' => "Vegie",
                 'Vegan' => "Vegan",
                 'Meat' => "Meat",
-                'Healthy' => "Healthy"
-                ]))
-            ->add('calories', null, array("attr" => ["class" => "form-control w-25", "placeholder" => "Write the Name of the Event"]))
-            ->add('rating', null, array("attr" => ["class" => "form-control w-25", "placeholder" => "Write the Name of the Event"]))
-            ->add('preparation', TextareaType::class, array("attr" => ["class" => "form-control w-25", "placeholder" => "Write the Name of the Event"]))
-            ->add('cooking_time', null, array("attr" => ["class" => "form-control w-25", "placeholder" => "Write the Name of the Event"]))
-        ;
+                'Healthy' => "Healthy"],
+            ])
+            ->add('calories', NumberType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+            ])
+            ->add('rating', Numbertype::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+            ])
+            ->add('preparation', TextareaType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+            ])
+            ->add('cooking_time', Numbertype::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+            ])
+            ->add('save', SubmitType::class, [
+                'label' => 'Submit',
+                'attr' => ['class' => 'btn btn-success mybtn', 'style' => 'margin-bottom: 7px;']
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

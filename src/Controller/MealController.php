@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Meal;
 use App\Form\MealType;
 use App\Repository\MealRepository;
+use App\Service\FileUploader;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,15 +22,28 @@ class MealController extends AbstractController
             'meals' => $mealRepository->findAll(),
         ]);
     }
+    
+    #[Route('/meal/{search}', name: 'app_meal_search')]
+    public function search(MealRepository $mealRepository, $search): Response
+    {
+        return $this->render('meal/index.html.twig', [
+            'meals' => $mealRepository->searchBy($search),
+        ]);
+    }
 
     #[Route('/newmeal', name: 'app_meal_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, MealRepository $mealRepository): Response
+    public function new(Request $request, MealRepository $mealRepository, FileUploader $fileUploader): Response
     {
         $meal = new Meal();
         $form = $this->createForm(MealType::class, $meal);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $image = $form->get('picture')->getData();
+            if ($image) {
+                $imageName = $fileUploader->upload($image);
+                $meal->setPicture($imageName);
+            }
             $mealRepository->save($meal, true);
 
             return $this->redirectToRoute('app_meal_index', [], Response::HTTP_SEE_OTHER);
@@ -50,12 +64,20 @@ class MealController extends AbstractController
     }
 
     #[Route('/meal{id}/edit', name: 'app_meal_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Meal $meal, MealRepository $mealRepository): Response
+    public function edit(Request $request, Meal $meal, MealRepository $mealRepository, FileUploader $fileUploader): Response
     {
         $form = $this->createForm(MealType::class, $meal);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $currentpic = $meal->getPicture();
+            $image = $form->get('picture')->getData();
+            if ($image) {
+                unlink($this->getParameter("image_directory") . $currentpic);
+                $imageName = $fileUploader->upload($image);
+                $meal->setPicture($imageName);
+            }
+
             $mealRepository->save($meal, true);
 
             return $this->redirectToRoute('app_meal_index', [], Response::HTTP_SEE_OTHER);
@@ -67,22 +89,16 @@ class MealController extends AbstractController
         ]);
     }
 
-    // #[Route('/meal{id}/delete', name: 'app_meal_delete', methods: ['POST'])]
-    // public function delete(Request $request, Meal $meal, MealRepository $mealRepository): Response
-    // {
-    //     if ($this->isCsrfTokenValid('delete'.$meal->getId(), $request->request->get('_token'))) {
-    //         $mealRepository->remove($meal, true);
-    //     }
-
-    //     return $this->redirectToRoute('app_meal_index', [], Response::HTTP_SEE_OTHER);
-    // }
-
     #[Route('/meal{id}/delete', name: 'app_meal_delete')]
     public function delete(ManagerRegistry $doctrine, $id){
         $em = $doctrine->getManager();
         $meal = $doctrine->getRepository(Meal::class)->find($id);
+        $image = $meal->getPicture();
+        if(file_exists($this->getParameter("image_directory") . $image)){
+            unlink($this->getParameter("image_directory") . $image);
+        }
+
         $em->remove($meal);
-        
         $em->flush();
         
         return $this->redirectToRoute('app_meal_index');

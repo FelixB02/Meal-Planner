@@ -1,0 +1,44 @@
+body {
+    background-color: #E3E7ED;
+}
+
+.myform {
+    margin-top: 0.5rem;
+    background-color: white;
+    width: 484px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.myform h1 {
+    text-align: center;
+}
+
+.mybtn2 {
+    width: 90px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.mybtn {
+    background-color: #6274D1 !important;
+    border: 1px solid #6274D1 !important;
+    margin: 0.5rem auto;
+    width: 90px;
+    display: block !important;
+}
+
+.btncont {
+    text-align: center;
+}
+
+.swalbtn {
+    background-color: #71A92C !important;
+    border: 1px solid #71A92C !important;
+  }
+
+  li {
+    color: red;
+    list-style: none;
+}

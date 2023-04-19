@@ -2,49 +2,96 @@
 
 {% block title %}Meal index{% endblock %}
 
+{% block stylesheets %}
+<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
 {% block body %}
-    <h1>Meal index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Picture</th>
-                <th>Category</th>
-                <th>Calories</th>
-                <th>Rating</th>
-                <th>Preparation</th>
-                <th>Cooking_time</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for meal in meals %}
-            <tr>
-                <td>{{ meal.id }}</td>
-                <td>{{ meal.name }}</td>
-                <td>{{ meal.picture }}</td>
-                <td>{{ meal.category }}</td>
-                <td>{{ meal.calories }}</td>
-                <td>{{ meal.rating }}</td>
-                <td>{{ meal.preparation }}</td>
-                <td>{{ meal.cookingTime }}</td>
-                <td>
-                    <a href="{{ path('app_meal_show', {'id': meal.id}) }}">show</a>
-                    <a href="{{ path('app_meal_edit', {'id': meal.id}) }}">edit</a>
-                    <button onclick="deleteswal('{{meal.id}}')" class="btn btn-danger">Delete</button>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div id="head">
+        <div class="cont">
+            <div id="heading">
+            <h1>Dashboard</h1>
+            </div>
+            <div id="button">
+            <button class="activatenav" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+            </button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="navbar">        
+        <div style="width:250px;" class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+            <h5 class="offcanvas-title navheading" id="offcanvasExampleLabel">Admin Panel</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+            <div>
+                <div id="imagecont">
+                <img id="admpic" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="">
+                </div>
+                <div id="textcont">
+                <h5>Admin Name (admin)</h5>
+                <p>felix.blechl@gmail.com</p>
+                </div>
+            </div>
+            <div class="navlinks">
+                <a href="/admin/meal"><i class="fa fa-hamburger fa-2x" aria-hidden="true"></i> Foods</a>
+                <a href="#"> <i class="fa fa-users fa-2x" aria-hidden="true"></i> Users</a>
+                <a href="#"> <i class="fa-solid fa-calendar-week fa-2x"></i> Mealplanners</a>
+            </div>
+            </div>
+        </div>
+    </div>
 
-    <a href="{{ path('app_meal_new') }}">Create new</a>
+
+    <div class="container infotable">
+        <div id="firstline">
+            <div>
+                <h2 id="flinehead">
+                    Meal
+                </h2>
+            </div>
+            <form id="searchform" class="search" onsubmit="searchName()">
+                <input type="text" placeholder="Search.." name="search" id="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+                <a class="mybtn create" href="{{ path('app_meal_new') }}">Create</a>
+            </form>
+            
+        </div>
+        <table class="table">
+            <thead>
+                <tr class="table-secondary">
+                    <th>Picture</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for meal in meals %}
+                <tr>
+                    <td class="tablevertical tableentry"><a href="{{ path('app_meal_show', {'id': meal.id}) }}"><img height="130px" width="215px"  src="{{asset("uploads/" ~ meal.picture)}}" alt="..."></a></td>
+                    <td class="tablevertical tableentry">{{ meal.name }}</td>
+                    <td class="tablevertical tableentry">{{ meal.category }}</td>
+                    <td class="tablevertical tableentry">
+                        <a class="btn btn-success mybtn" href="{{ path('app_meal_show', {'id': meal.id}) }}">Show</a>
+                        <a class="btn btn-success mybtn" href="{{ path('app_meal_edit', {'id': meal.id}) }}">Edit</a>
+                        <button onclick="deleteswal('{{meal.id}}')" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="9">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+   
 {% endblock %}
 {% block js %}
 <script src='{{asset("js/delete.js")}}'></script>
