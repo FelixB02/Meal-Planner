@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Meal;
 use App\Form\MealType;
 use App\Repository\MealRepository;
+use App\Repository\UserRepository;
 use App\Service\FileUploader;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,8 +17,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class MealController extends AbstractController
 {
     #[Route('/meal', name: 'app_meal_index', methods: ['GET'])]
-    public function index(MealRepository $mealRepository): Response
+    public function index(MealRepository $mealRepository, UserRepository $userRepository): Response
     {
+        $activeuser = $this->getUser();
         return $this->render('meal/index.html.twig', [
             'meals' => $mealRepository->findAll(),
         ]);
@@ -39,6 +41,7 @@ class MealController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $meal->setFkUser($this->getUser());
             $image = $form->get('picture')->getData();
             if ($image) {
                 $imageName = $fileUploader->upload($image);

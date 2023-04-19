@@ -15,7 +15,7 @@
             </div>
             <div id="button">
             <button class="activatenav" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+                <img width="40px" src="https://logodix.com/logo/1707088.png" alt="">
             </button>
             </div>
         </div>
@@ -57,7 +57,7 @@
             <form id="searchform" class="search" onsubmit="searchName()">
                 <input type="text" placeholder="Search.." name="search" id="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
-                <a class="mybtn create" href="{{ path('app_meal_new') }}">Create</a>
+                <a class="btn btn-success mybtn create" href="{{ path('app_meal_new') }}">Create</a>
             </form>
             
         </div>
@@ -67,6 +67,7 @@
                     <th>Picture</th>
                     <th>Name</th>
                     <th>Category</th>
+                    <th>Details</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -76,10 +77,10 @@
                     <td class="tablevertical tableentry"><a href="{{ path('app_meal_show', {'id': meal.id}) }}"><img height="130px" width="215px"  src="{{asset("uploads/" ~ meal.picture)}}" alt="..."></a></td>
                     <td class="tablevertical tableentry">{{ meal.name }}</td>
                     <td class="tablevertical tableentry">{{ meal.category }}</td>
+                    <td class="tablevertical tableentry"><a style="color: #6274D1" href="{{ path('app_meal_show', {'id': meal.id}) }}">Show Meal</a></td>
                     <td class="tablevertical tableentry">
-                        <a class="btn btn-success mybtn" href="{{ path('app_meal_show', {'id': meal.id}) }}">Show</a>
-                        <a class="btn btn-success mybtn" href="{{ path('app_meal_edit', {'id': meal.id}) }}">Edit</a>
-                        <button onclick="deleteswal('{{meal.id}}')" class="btn btn-danger">Delete</button>
+                        <a class="btn btn-success mybtn mb-3 mb-md-0" href="{{ path('app_meal_edit', {'id': meal.id}) }}">Edit</a>
+                        <button onclick="deleteswal('{{meal.id}}')" class="btn btn-danger mybtn">Delete</button>
                     </td>
                 </tr>
             {% else %}
