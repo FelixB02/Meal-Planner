@@ -1,40 +1,74 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <link href="{{ asset('css/home/homestyles.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+
 {% block body %}
-
-
-<link href="{{ asset('css/homestyles.css') }}" rel="stylesheet" type="text/css"/>
-
-{% include "components/navbar.html" %}
-
-<div class="parallax"> </div>
-
-        <div id="p1">
-        Scroll Up and Down this page to see the parallax scrolling effect.
-        This div is just here to enable scrolling.
-        Tip: Try to remove the background-attachment property to remove the scrolling effect.
+        {% include "components/navbar.html" %}
+        
+        <div id="hero" class="container-fluid">
+        
+        <img src="../../pictures/Hero.png"  class="m-0 p-0 w-75"  alt="Responsive image">
+                <h1 class="mb-5">Meal Plan</h1>
+        <div id="hero-btn">
+        
+        <a  class="btn btn-lg btn-primary" href="">Go To Meal</a>
         </div>
-   
+        </div>
+        
+        <hr>
+        <br>
+        <div class="container">
+	<div class="row">
+		<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ">
+                        <h1>Browse | <a href="">Healthy Recipes</a></h1><br>
+                        <p>We've got hundreds of delicious recipes for every taste and dietary preference. Browse them all using our Search and Filter tools and choose the ones that are right for you.</p>
+                        <img  src="../../pictures/file.png" class="img-fluid rounded-circle" alt="Responsive image">
 
-
-<div class="parallax1"></div>
-        <div id="p2">
-        Scroll Up and Down this page to see the parallax scrolling effect.
-        This div is just here to enable scrolling.
-        Tip: Try to remove the background-attachment property to remove the scrolling effect.
+                </div>
+                <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 ">
+                        <img  src="../../pictures/meal1.png" class="img-fluid rounded-circle" alt="Responsive image">
+                </div>
+	</div>
         </div>
 
+        <div class="text-center">
+        <div class="card">
+                <div class="card-body">
+                <h2 class="card-title">Design a <a href="#"> Meal Plan</a></h2>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                 <img src="../../pictures/p1.jpg" class="card-img-bottom w-75 h-50" alt="...">
+                </div>
+        </div>
+        </div>
+        
+      
 
 
-
-
+        {# <div id="p1">
+         Scroll Up and Down this page to see the parallax scrolling effect.
+         This div is just here to enable scrolling.
+         Tip: Try to remove the background-attachment property to remove the scrolling effect.
+         </div>
+        <div class="parallax1"></div>
+         <div id="p2">
+         Scroll Up and Down this page to see the parallax scrolling effect.
+         This div is just here to enable scrolling.
+         Tip: Try to remove the background-attachment property to remove the scrolling effect.
+         </div>
+        <div class="parallax1"></div> #}
 
 {% endblock %}
 
 {% block js %}
+        <script src='{{asset("js/home/swiper.js")}}'></script>
         <script src='{{asset("js/nav.js")}}'></script>
-
 {% endblock %}
 
 
