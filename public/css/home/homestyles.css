@@ -1,14 +1,22 @@
 
 #hero{
+  position: relative;
   align-items: center;
   text-align: center;
 }
 #hero-btn{
+  position: absolute;
+
+  top:25%;
+  left: 50%;
+  
 
 }
 
 a:hover {
   text-decoration: none;
+
+
 }
 
 
