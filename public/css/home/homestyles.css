@@ -1,53 +1,125 @@
-
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 #hero{
   position: relative;
   align-items: center;
   text-align: center;
 }
+
 #hero-btn{
   position: absolute;
+  top: 35%;
+  left: 45%;
+}
+/* --------------------------------- Butoon -----------------------  */
 
-  top:25%;
-  left: 50%;
-  
-
+/* --------------------- hero title -------------------------------------- */
+.letter {
+  font-family: "Lucida Sans";
+  font-size: 30px;
+  display: inline-block;
+  position: relative;
+  animation: float 2s ease-in-out infinite;
+}
+.letter:hover {
+  animation: bounce 0.5s ease-in-out infinite alternate;
+  animation-name: bounce;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    color: aqua;
+ }
+  50% {
+    transform: translateY(-10px);
+    color: #b700ff;
+ }
+  100% {
+    transform: translateY(0);
+    color: aqua;
+ }
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+ }
+  50% {
+    transform: translateY(-10px);
+ }
+  100% {
+    transform: translateY(0);
+ }
 }
 
-a:hover {
-  text-decoration: none;
+/* ----------------------- for crosel ---------------------  */
 
-
+.opinions {
+  position: relative;
+  margin-top: 0px;
 }
+.peopleOpinions {
+  text-align: center;
 
-
-
-
-
-/* body, html {
-  height: 90%;
+  background-color: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
 }
-
-#p1{
-
-  height: 400px;
-  background: linear-gradient(0deg, rgba(240,234,228,0.2) 0%, rgba(221,241,202,0.3768907221091562) 0%, rgba(197,228,228,0) 100%);
-
+.card{
+  width: 90% !important; 
 }
-
-.parallax1 {
-  background-image: url("../../pictures/meals-week.jpg");
-  height: 150px; 
+.testmon .card {
   width: 100%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
- 
+  min-height: 100px;
+  background: transparent;
+
+
+  text-align: center;
+
+  align-items: center;
+  justify-content: center;
+  font-family: "Pacifico";
+}
+.testmon .card:hover {
+  box-shadow: 2px 2px 15px #fbfaf8 inset;
 }
 
-#p2{
-  height: 800px;
-  background: rgb(240,234,228);
-  background: linear-gradient(0deg, rgba(240,234,228,1) 0%, rgba(221,241,202,0.3768907221091562) 0%, rgba(197,228,228,0) 100%);
 
-} */
+
+.testmon .card-text {
+  text-align: center;
+}
+.testmon .card-foter {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
+.testmon #cardName2,
+.testmon #roleName2 {
+  padding-left: 10px;
+  font-size: 15px;
+  margin: 0;
+}
+.testmon .slick-dots .slick-active button {
+  background: #a40909 !important;
+}
+
+.testmon .slick-dots li button:before {
+  content: "" !important;
+}
+
+.testmon .slick-dots li button {
+  width: 61px !important;
+  height: 8px !important;
+  left: 825px !important;
+  border: 20px !important;
+  background: #1b1a1a !important;
+  border-radius: 20px !important;
+}
+.testmon .slick-dots li {
+  width: 60px !important;
+  height: 0 !important;
+}
+
+.testmon .slick-slide {
+  margin: 0 20px;
+}
+/* -------------------------- end of carosel ----------------------  */
