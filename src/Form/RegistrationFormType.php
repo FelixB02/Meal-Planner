@@ -26,7 +26,7 @@ class RegistrationFormType extends AbstractType
         ->add('phone', TextType::class, array("attr"=>["class"=>"form-control"], "label" => "Phone: "))
         ->add('gender', TextType::class, array("attr"=>["class"=>"form-control"], "label" => "Gender: "))
         
-        // ->add('blocked', null, array("attr"=>["class"=>"d-none"]))
+        ->add('blocked', null, array("attr"=>["class"=>"d-none"]))
         ->add('image', FileType::class, [
             'label' => 'Picture (Image File)',
 
