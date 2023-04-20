@@ -3,15 +3,25 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<link href="{{ asset('css/registration.css') }}" rel="stylesheet" type="text/css"/>
 
-    {{ form_start(registrationForm) }}
+    <h1 class="text-center">Register</h1>
+    <div class="container form">
+        {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.fname) }}
+        {{ form_row(registrationForm.lname) }}
+        {{ form_row(registrationForm.date_of_birth) }}
+        {{ form_row(registrationForm.phone) }}
+        {{ form_row(registrationForm.gender) }}
         {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.plainPassword,
+         {label: 'Password' }) }}
+        {# {{ form_row(registrationForm.blocked) }} #}
+        {{ form_row(registrationForm.image) }}
+        {# {{ form_row(registrationForm.agreeTerms) }}   #}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn btn-success">Register</button>
     {{ form_end(registrationForm) }}
+    </div>
+    
 {% endblock %}
