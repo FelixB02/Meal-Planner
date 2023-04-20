@@ -17,19 +17,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class MealController extends AbstractController
 {
     #[Route('/meal', name: 'app_meal_index', methods: ['GET'])]
-    public function index(MealRepository $mealRepository, UserRepository $userRepository): Response
+    public function index(MealRepository $mealRepository): Response
     {
         $activeuser = $this->getUser();
         return $this->render('meal/index.html.twig', [
             'meals' => $mealRepository->findAll(),
+            'user' => $activeuser,
         ]);
     }
     
     #[Route('/meal/{search}', name: 'app_meal_search')]
     public function search(MealRepository $mealRepository, $search): Response
     {
+        $activeuser = $this->getUser();
         return $this->render('meal/index.html.twig', [
             'meals' => $mealRepository->searchBy($search),
+            'user' => $activeuser,
         ]);
     }
 
