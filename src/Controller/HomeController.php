@@ -19,18 +19,5 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
-    #[Route('/all/meals', name: 'app_meal_all')]
-    public function meals(MealRepository $mealRepository): Response
-    {
-        return $this->render('home/meals.html.twig', [
-            'controller_name' => 'HomeController',
-            'meals' => $mealRepository->findAll(),
-            'catMeat' => $mealRepository->findBy(['category' => 'Meat']),
-            'catVegan' => $mealRepository->findBy(['category' => 'Vegan']),
-            'catVegeterian' => $mealRepository->findBy(['category' => 'Vegeterian']),
-
-
-            // 'categories' => $mealRepository -> findBy(array('category' => $idList))
-        ]);
-    }
+    
 }
