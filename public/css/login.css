@@ -1,6 +1,9 @@
 /* body{background-color: blue;} */
 /* Style the form container */
-body{background-image: url(../../pictures/login-bg.png);}
+body{background-image: url(../../pictures/login-bg.png);
+background-repeat: no-repeat;
+background-size: cover;
+height: 100vh;}
 form {
     width: 800px;
     margin: auto;

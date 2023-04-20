@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-        <link href="{{ asset('css/home/homestyles.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('css/mealstyles.css') }}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 
@@ -75,6 +75,7 @@
                 >veggie</a
                 >
             </li>
+            
         </ul>
   <!-- Pills navs -->
   
@@ -88,28 +89,29 @@
 
       {# ALL MEALS  #}
             <div class="container">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="row row-cols-2 row-cols-lg-3 g-1 align-items-center">
                     {% for meal in meals %}
                     <div class="col">
-                        <div class="card col-sm-5">
+                        <div class="card col-md-8">
                             <img src="{{meal.picture}}" alt="Girl in a jacket">              
                             <div class="card-body">
-                            <h5 class="card-title text-center"> {{meal.name}}</h5>
-                            <p class="card-text text-center">
-                                {{meal.rating}} stars (rated by users),
-                                <a class="card-text text-end caloriestext"> {{meal.calories}} calories</a>
-                                
-                        </p>
-                        </div>
+                                <h5 class="card-title text-center"> {{meal.name}}</h5>
+                                <p class="card-text text-center">
+                                    {{meal.rating}} stars (rated by users),
+                                    <a class="card-text text-end caloriestext textdeco"> {{meal.calories}} calories</a>
+                                    
+                                </p>
+                            </div>
                         </div>
                     </div>
                     {% else %}
                         <br>
                         <p></p>
-                        <img src ="{{ asset('pictures/sorry.jpg') }}" >
-                        <div class = "container ms-3">
-                       <a class="text-center"> No meals found... </a>
-                       </div>
+                       <div class="container ms-3">
+                        <img src ="{{ asset('pictures/sorry.jpg') }}" width="300">
+                        <p class="text-start text-danger">no meals found</p>
+                        </div>
+                       
                     {% endfor %}
                 </div>
             </div>
@@ -123,7 +125,6 @@
     
 
         
- {# SHow all the categories  #}
 
     
         
