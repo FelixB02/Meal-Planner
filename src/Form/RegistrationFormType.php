@@ -26,7 +26,7 @@ class RegistrationFormType extends AbstractType
         ->add('phone', TextType::class, array("attr"=>["class"=>"form-control"], "label" => "Phone: "))
         ->add('gender', TextType::class, array("attr"=>["class"=>"form-control"], "label" => "Gender: "))
         
-        // ->add('blocked', null, array("attr"=>["class"=>"d-none"]))
+        ->add('blocked', null, array("attr"=>["class"=>"d-none"]))
         ->add('image', FileType::class, [
             'label' => 'Picture (Image File)',
 
@@ -59,7 +59,7 @@ class RegistrationFormType extends AbstractType
             // instead of being set onto the object directly,
             // this is read and encoded in the controller
             'mapped' => false,
-            'attr' => ['autocomplete' => 'new-password'],
+            'attr' => ['autocomplete' => 'new-password', "class"=>"form-control"],
             'constraints' => [
                 new NotBlank([
                     'message' => 'Please enter a password',

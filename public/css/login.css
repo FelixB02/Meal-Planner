@@ -1,6 +1,9 @@
 /* body{background-color: blue;} */
 /* Style the form container */
-body{background-image: url(../../pictures/login-bg.png);}
+body{background-image: url(../../pictures/login-bg.png);
+background-repeat: no-repeat;
+background-size: cover;
+height: 100vh;}
 form {
     width: 800px;
     margin: auto;
@@ -72,7 +75,7 @@ form {
   }
   
   /* Style the form submit button */
-  button[type="submit"] {
+  button[type="submit"]{
     display: block;
     width: 100%;
     padding: 10px;
@@ -87,7 +90,7 @@ form {
   }
   
   /* Add hover effect to the submit button */
-  button[type="submit"]:hover {
+  button[type="submit"]:hover{
     background-color: #494E30;
   }
   

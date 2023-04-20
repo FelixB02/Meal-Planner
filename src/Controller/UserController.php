@@ -27,6 +27,7 @@ class UserController extends AbstractController
             'count' => $count,
         ]);
     }
+    
 
     // #[Route('/user{id}', name: 'app_user_show', methods: ['GET'])]
     // public function yourProfile(User $user, $id): Response
