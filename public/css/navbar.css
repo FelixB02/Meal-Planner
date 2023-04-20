@@ -2,7 +2,8 @@
 
 .custom {
 
-    background: linear-gradient(to right, #494E30, #BCAF32)
+    background: linear-gradient(to right, rgba(108,175,91,255), #b4d4b0)
+
     }
     
     .user-profile {
@@ -35,6 +36,6 @@
       }
     
       .logoo{
-        color: #69C20E!important;
+        color: #eff0e8!important;
       font-size: 1cm!important;}
       
