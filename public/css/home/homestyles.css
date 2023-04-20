@@ -84,3 +84,8 @@
   margin: 0 20px;
 }
 /* -------------------------- end of carosel ----------------------  */
+
+.caloriestext{
+  font-style: italic;
+  text-decoration: none;
+}
