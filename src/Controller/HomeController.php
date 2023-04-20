@@ -19,7 +19,7 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
-    #[Route('/meals', name: 'app_meal_all')]
+    #[Route('/all/meals', name: 'app_meal_all')]
     public function meals(MealRepository $mealRepository): Response
     {
         return $this->render('home/meals.html.twig', [
