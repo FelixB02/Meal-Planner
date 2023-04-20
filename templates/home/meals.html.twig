@@ -107,6 +107,18 @@
         >Tab 3</a
       >
     </li>
+    <li class="nav-item" role="presentation">
+        <a
+          class="nav-link"
+          id="vegetarian"
+          data-mdb-toggle="pill"
+          href="#vegetarian"
+          role="tab"
+          aria-controls="vegetarian"
+          aria-selected="false"
+          >Vegetarian</a
+        >
+      </li>
   </ul>
   <!-- Pills navs -->
   
@@ -116,41 +128,88 @@
       class="tab-pane fade show active"
       id="ex1-pills-1"
       role="tabpanel"
-      aria-labelledby="ex1-tab-1"
-    >
-      Tab 1 content
+      aria-labelledby="ex1-tab-1">
+
+      {# ALL MEALS  #}
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for meal in meals %}
+                    <div class="col">
+                        <div class="card col-sm-5">
+                            <img src="{{meal.picture}}" alt="Girl in a jacket">              
+                            <div class="card-body">
+                            <h5 class="card-title text-center"> {{meal.name}}</h5>
+                            <p class="card-text text-center">
+                                {{meal.rating}} stars (rated by users),
+                                <a class="card-text text-end caloriestext"> {{meal.calories}} calories</a>
+                                
+                        </p>
+                        </div>
+                        </div>
+                    </div>
+                    {% else %}
+                        No meals found...
+                    {% endfor %}
+                </div>
+            </div>
+            {# ALL MEALS END  #}
+
     </div>
     <div class="tab-pane fade" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-      Tab 2 content
+      {# MEAT MEALS  #}
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for meat in catMeat %}
+                    <div class="col">
+                        <div class="card col-sm-5">
+                            <img src="{{meat.picture}}" alt="Girl in a jacket">              
+                            <div class="card-body">
+                            <h5 class="card-title text-center"> {{meat.name}}</h5>
+                            <p class="card-text text-center">
+                                {{meat.rating}} stars (rated by users),
+                                <a class="card-text text-end caloriestext"> {{meat.calories}} calories</a>
+                                
+                        </p>
+                        </div>
+                        </div>
+                    </div>
+                    {% else %}
+                        No meals found...
+                    {% endfor %}
+                </div>
+            </div>
+            {# Meat MEALS END  #}
     </div>
     <div class="tab-pane fade" id="ex1-pills-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-      Tab 3 content
+        {# Vegan MEALS  #}
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for vegan in catVegan %}
+                <div class="col">
+                    <div class="card col-sm-5">
+                        <img src="{{vegan.picture}}" alt="Girl in a jacket">              
+                        <div class="card-body">
+                        <h5 class="card-title text-center"> {{vegan.name}}</h5>
+                        <p class="card-text text-center">
+                            {{vegan.rating}} stars (rated by users),
+                            <a class="card-text text-end caloriestext"> {{vegan.calories}} calories</a>
+                            
+                    </p>
+                    </div>
+                    </div>
+                </div>
+                {% else %}
+                    No meals found...
+                {% endfor %}
+            </div>
+        </div>
+        {# Vegan MEALS END  #}
     </div>
   </div>
   <!-- Pills content -->
 
 
-    <div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for meal in meals %}
-        <div class="col">
-            <div class="card col-sm-5">
-                <img src="{{meal.picture}}" alt="Girl in a jacket">              
-                <div class="card-body">
-                <h5 class="card-title text-center"> {{meal.name}}</h5>
-                <p class="card-text text-center">
-                     {{meal.rating}} stars (rated by users),
-                    <a class="card-text text-end caloriestext"> {{meal.calories}} calories</a>
-                    
-            </p>
-              </div>
-            </div>
-          </div>
-        {% else %}
-            No meals found...
-        {% endfor %}
-        </div>
-        </div>
+    
 
         
  {# SHow all the categories  #}
