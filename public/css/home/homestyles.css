@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 #hero{
   position: relative;
   align-items: center;
@@ -13,44 +12,6 @@
 /* --------------------------------- Butoon -----------------------  */
 
 /* --------------------- hero title -------------------------------------- */
-.letter {
-  font-family: "Lucida Sans";
-  font-size: 30px;
-  display: inline-block;
-  position: relative;
-  animation: float 2s ease-in-out infinite;
-}
-.letter:hover {
-  animation: bounce 0.5s ease-in-out infinite alternate;
-  animation-name: bounce;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-}
-@keyframes float {
-  0% {
-    transform: translateY(0);
-    color: aqua;
- }
-  50% {
-    transform: translateY(-10px);
-    color: #b700ff;
- }
-  100% {
-    transform: translateY(0);
-    color: aqua;
- }
-}
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
- }
-  50% {
-    transform: translateY(-10px);
- }
-  100% {
-    transform: translateY(0);
- }
-}
 
 /* ----------------------- for crosel ---------------------  */
 
