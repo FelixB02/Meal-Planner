@@ -72,7 +72,7 @@ form {
   }
   
   /* Style the form submit button */
-  button[type="submit"], .signup{
+  button[type="submit"]{
     display: block;
     width: 100%;
     padding: 10px;
@@ -87,7 +87,7 @@ form {
   }
   
   /* Add hover effect to the submit button */
-  button[type="submit"]:hover , .signup:hover{
+  button[type="submit"]:hover{
     background-color: #494E30;
   }
   
