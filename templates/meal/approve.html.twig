@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}Meal index{% endblock %}
 
 {% block stylesheets %}
 <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet" type="text/css"/>
@@ -30,11 +30,11 @@
             <div class="offcanvas-body">
             <div>
                 <div id="imagecont">
-                <img id="admpic" src="{{asset("uploads/" ~ actuser.image)}}" alt="">
+                <img id="admpic" src="{{asset("uploads/" ~ user.image)}}" alt="">
                 </div>
                 <div id="textcont">
-                <h5> {{actuser.fname ~ " " ~ actuser.lname}} (Admin)</h5>
-                <p> {{actuser.email}}</p>
+                <h5> {{user.fname ~ " " ~ user.lname}} (Admin)</h5>
+                <p> {{user.email}}</p>
                 <a style="color: black;" href="{{ path('app_logout') }}">Logout</a>
                 </div>
             </div>
@@ -53,34 +53,27 @@
         <div id="firstline">
             <div>
                 <h2 id="flinehead">
-                    Users
+                    Not approved
                 </h2>
-            </div>
-            <form id="searchform" class="search" onsubmit="searchName()">
-                <input type="text" placeholder="Search.." name="search" id="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>      
+            </div>            
         </div>
         <table class="table">
             <thead>
                 <tr class="table-secondary">
                     <th>Picture</th>
-                    <th>Fullname</th>
-                    <th>Email</th>
-                    <th>Details</th>
+                    <th>Name</th>
+                    <th>Category</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-            {% for user in users %}
+            {% for meal in meals %}
                 <tr>
-                    <td class="tablevertical tableentry"><a href="{{ path('app_user_show', {'id': user.id}) }}"><img height="160px" width="110px"  src="{{asset("uploads/" ~ user.image)}}" alt="..."></a></td>
-                    <td class="tablevertical tableentry">{{ user.fname ~ " " ~ user.lname }}</td>
-                    <td class="tablevertical tableentry">{{ user.email }}</td>
-                    <td class="tablevertical tableentry"><a style="color: #6274D1" href="{{ path('app_user_show', {'id': user.id}) }}">Show User</a></td>
+                    <td class="tablevertical tableentry"><img height="130px" width="215px"  src="{{asset("uploads/" ~ meal.picture)}}" alt="..."></td>
+                    <td class="tablevertical tableentry">{{ meal.name }}</td>
+                    <td class="tablevertical tableentry">{{ meal.category }}</td>
                     <td class="tablevertical tableentry">
-                        <a class="btn btn-success mybtn mb-3 mb-md-0" href="{{ path('app_user_edit', {'id': user.id}) }}">Edit</a>
-                        <button onclick="deleteswal2('{{user.id}}')" class="btn btn-danger mybtn">Delete</button>
+                        <a class="btn btn-success mybtn mb-3 mb-md-0" href="{{ path('app_meal_approve_one', {'id': meal.id}) }}">Approve</a>
                     </td>
                 </tr>
             {% else %}
@@ -93,7 +86,4 @@
     </div>
 
    
-{% endblock %}
-{% block js %}
-<script src='{{asset("js/adminuser.js")}}'></script>
 {% endblock %}

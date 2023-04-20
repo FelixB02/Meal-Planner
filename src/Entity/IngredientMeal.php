@@ -16,7 +16,7 @@ class IngredientMeal
     #[ORM\Column(length: 50)]
     private ?string $amount = null;
 
-    #[ORM\ManyToOne(inversedBy: 'IngredientMeals')]
+    #[ORM\ManyToOne(inversedBy: 'IngredientMeals', cascade:["persist"])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Meal $fk_meal = null;
 

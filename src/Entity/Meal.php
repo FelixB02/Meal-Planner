@@ -46,6 +46,12 @@ class Meal
     #[ORM\ManyToOne(inversedBy: 'meals')]
     private ?User $fk_user = null;
 
+    #[ORM\Column]
+    private ?bool $approved = null;
+
+    #[ORM\Column(length: 1000)]
+    private ?string $Ingredients = null;
+
     public function __construct()
     {
         $this->weeks = new ArrayCollection();
@@ -209,6 +215,30 @@ class Meal
     public function setFkUser(?User $fk_user): self
     {
         $this->fk_user = $fk_user;
+
+        return $this;
+    }
+
+    public function isApproved(): ?bool
+    {
+        return $this->approved;
+    }
+
+    public function setApproved(bool $approved): self
+    {
+        $this->approved = $approved;
+
+        return $this;
+    }
+
+    public function getIngredients(): ?string
+    {
+        return $this->Ingredients;
+    }
+
+    public function setIngredients(string $Ingredients): self
+    {
+        $this->Ingredients = $Ingredients;
 
         return $this;
     }
