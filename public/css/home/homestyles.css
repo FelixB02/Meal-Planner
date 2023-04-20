@@ -9,83 +9,28 @@
   top: 35%;
   left: 45%;
 }
-/* --------------------------------- Butoon -----------------------  */
-
-/* --------------------- hero title -------------------------------------- */
-
-/* ----------------------- for crosel ---------------------  */
-
-.opinions {
-  position: relative;
-  margin-top: 0px;
+.btnss{
+  background-image: linear-gradient(173.04deg,#5ebd21 50.82%,#48d16e 84.97%)!important;
+  background-color: #5ebd21;
 }
-.peopleOpinions {
+
+.titleHM{
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2cm;
+  color: #69C20E;
+}
+
+.HMtext{
+  font-family: 'Lato', sans-serif;
+  font-size: x-large;
+  color: #727272;
+}
+
+.goals{
+  font-family: 'Amatic SC', cursive;
   text-align: center;
-
-  background-color: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
-}
-.card{
-  width: 90% !important; 
-}
-.testmon .card {
-  width: 100%;
-  min-height: 100px;
-  background: transparent;
-
-
-  text-align: center;
-
-  align-items: center;
-  justify-content: center;
-  font-family: "Pacifico";
-}
-.testmon .card:hover {
-  box-shadow: 2px 2px 15px #fbfaf8 inset;
+    font-weight: 900;
+    font-size: 2cm;
+    color:#69C20E;
 }
 
-
-
-.testmon .card-text {
-  text-align: center;
-}
-.testmon .card-foter {
-  display: flex;
-  align-items: center;
-  margin: 30px 0;
-}
-.testmon #cardName2,
-.testmon #roleName2 {
-  padding-left: 10px;
-  font-size: 15px;
-  margin: 0;
-}
-.testmon .slick-dots .slick-active button {
-  background: #a40909 !important;
-}
-
-.testmon .slick-dots li button:before {
-  content: "" !important;
-}
-
-.testmon .slick-dots li button {
-  width: 61px !important;
-  height: 8px !important;
-  left: 825px !important;
-  border: 20px !important;
-  background: #1b1a1a !important;
-  border-radius: 20px !important;
-}
-.testmon .slick-dots li {
-  width: 60px !important;
-  height: 0 !important;
-}
-
-.testmon .slick-slide {
-  margin: 0 20px;
-}
-/* -------------------------- end of carosel ----------------------  */
-
-.caloriestext{
-  font-style: italic;
-  text-decoration: none;
-}

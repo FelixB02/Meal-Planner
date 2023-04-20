@@ -13,7 +13,7 @@ use App\Repository\UserRepository;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(MealRepository $mealRepository): Response
     {
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
