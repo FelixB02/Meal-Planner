@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Meal{% endblock %}
+
+{% block body %}
+    <h1>Meal</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ meal.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ meal.name }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ meal.picture }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ meal.category }}</td>
+            </tr>
+            <tr>
+                <th>Calories</th>
+                <td>{{ meal.calories }}</td>
+            </tr>
+            <tr>
+                <th>Rating</th>
+                <td>{{ meal.rating }}</td>
+            </tr>
+            <tr>
+                <th>Preparation</th>
+                <td>{{ meal.preparation }}</td>
+            </tr>
+            <tr>
+                <th>Cooking_time</th>
+                <td>{{ meal.cookingTime }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_meal_user_index') }}">back to list</a>
+
+    <a href="{{ path('app_meal_user_edit', {'id': meal.id}) }}">edit</a>
+
+    {{ include('meal_user/_delete_form.html.twig') }}
+{% endblock %}
