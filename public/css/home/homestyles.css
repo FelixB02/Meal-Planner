@@ -13,3 +13,24 @@
   background-image: linear-gradient(173.04deg,#5ebd21 50.82%,#48d16e 84.97%)!important;
   background-color: #5ebd21;
 }
+
+.titleHM{
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2cm;
+  color: #69C20E;
+}
+
+.HMtext{
+  font-family: 'Lato', sans-serif;
+  font-size: x-large;
+  color: #727272;
+}
+
+.goals{
+  font-family: 'Amatic SC', cursive;
+  text-align: center;
+    font-weight: 900;
+    font-size: 2cm;
+    color:#69C20E;
+}
+
