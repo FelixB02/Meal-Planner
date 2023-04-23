@@ -99,7 +99,8 @@
                                 <p class="card-text text-center">
                                     {{meal.rating}} stars (rated by users),
                                     <a class="card-text text-end caloriestext textdeco"> {{meal.calories}} calories</a>
-                                    
+                                    <a href="{{ path('app_meal_detail', {'id': meal.id}) }}">Details</a>
+
                                 </p>
                             </div>
                         </div>
