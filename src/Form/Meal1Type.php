@@ -4,21 +4,64 @@ namespace App\Form;
 
 use App\Entity\Meal;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class Meal1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('picture')
-            ->add('category')
-            ->add('calories')
-            ->add('rating')
-            ->add('preparation')
-            ->add('cooking_time')
+            ->add('name', TextType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                ])
+            ->add('picture',FileType::class,[
+                'label' => 'Picture (Image File)',
+    
+                'mapped' => false,
+    
+                'required' => false,
+    
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpg',
+                            'image/jpeg',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid document',
+                    ])
+                ],
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                ])
+            ->add('category', ChoiceType::class,[
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
+                'choices' =>[
+                    '' => null,
+                    'Vegie' => "Vegie",
+                    'Vegan' => "Vegan",
+                    'Meat' => "Meat",
+                    'Healthy' => "Healthy"],
+                ])
+            ->add('calories',NumberType::class,[
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+            ])
+            ->add('rating', NumberType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+            ])
+            ->add('preparation',TextareaType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+            ])
+            ->add('cooking_time', Numbertype::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+            ])
             // ->add('fk_user')
         ;
     }
