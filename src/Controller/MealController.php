@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Ingredient;
+use App\Entity\IngredientMeal;
 use App\Entity\Meal;
 use App\Form\MealType;
+use App\Repository\IngredientMealRepository;
+use App\Repository\IngredientRepository;
 use App\Repository\MealRepository;
 use App\Repository\UserRepository;
 use App\Service\FileUploader;
@@ -20,24 +24,16 @@ class MealController extends AbstractController
     public function index(MealRepository $mealRepository): Response
     {
         $activeuser = $this->getUser();
+        $count = count($mealRepository->findBy(['approved' => 0]));
         return $this->render('meal/index.html.twig', [
-            'meals' => $mealRepository->findAll(),
+            'meals' => $mealRepository->findBy(['approved' => 1]),
             'user' => $activeuser,
-        ]);
-    }
-    
-    #[Route('/meal/{search}', name: 'app_meal_search')]
-    public function search(MealRepository $mealRepository, $search): Response
-    {
-        $activeuser = $this->getUser();
-        return $this->render('meal/index.html.twig', [
-            'meals' => $mealRepository->searchBy($search),
-            'user' => $activeuser,
+            'count' =>$count,
         ]);
     }
 
     #[Route('/newmeal', name: 'app_meal_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, MealRepository $mealRepository, FileUploader $fileUploader): Response
+    public function new(Request $request, MealRepository $mealRepository, FileUploader $fileUploader, IngredientRepository $ingredientRepository, IngredientMealRepository $ingredientMealRepository ): Response
     {
         $meal = new Meal();
         $form = $this->createForm(MealType::class, $meal);
@@ -45,6 +41,7 @@ class MealController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $meal->setFkUser($this->getUser());
+            $meal->setApproved(0);
             $image = $form->get('picture')->getData();
             if ($image) {
                 $imageName = $fileUploader->upload($image);
@@ -62,19 +59,30 @@ class MealController extends AbstractController
     }
 
     #[Route('/meal{id}', name: 'app_meal_show', methods: ['GET'])]
-    public function show(Meal $meal): Response
+    public function show(Meal $meal, MealRepository $mealRepository, $id): Response
     {
+        $my = $mealRepository->find(['id' => $id]);
+        $final = $my->getIngredients();
+        $final = explode(',', $final);
+        // $ingredients = [];
+        // foreach($final as $fin) {
+        //     $ingredients[] = $fin;
+        // }
         return $this->render('meal/show.html.twig', [
             'meal' => $meal,
+            'ingredient' => $final,
         ]);
     }
 
     #[Route('/meal{id}/edit', name: 'app_meal_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Meal $meal, MealRepository $mealRepository, FileUploader $fileUploader): Response
+    public function edit(Request $request, Meal $meal, MealRepository $mealRepository, FileUploader $fileUploader, IngredientMealRepository $ingredientMealRepository, IngredientRepository $ingredientRepository, $id ): Response
     {
+        
+
         $form = $this->createForm(MealType::class, $meal);
         $form->handleRequest($request);
 
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $currentpic = $meal->getPicture();
             $image = $form->get('picture')->getData();
@@ -108,5 +116,35 @@ class MealController extends AbstractController
         $em->flush();
         
         return $this->redirectToRoute('app_meal_index');
+    }
+
+    #[Route('/meal/approve', name: 'app_meal_approve')]
+    public function approve(MealRepository $mealRepository): Response
+    {
+        $count = count($mealRepository->findBy(['approved' => 0]));
+        // dd($mealRepository->findBy(['approved' => 0]));
+        return $this->render('meal/approve.html.twig', [
+            'meals' => $mealRepository->findBy(['approved' => 0]),
+            'user' => $this->getUser(),
+            'count' => $count,
+        ]);
+    }
+
+    #[Route('/meal{id}/approve', name: 'app_meal_approve_one')]
+    public function approveOne(Meal $meal, MealRepository $mealRepository): Response
+    {
+        $meal->setApproved(1);
+        $mealRepository->save($meal, true);
+        return $this->redirectToRoute('app_meal_approve');
+    }
+
+    #[Route('/meal{search}', name: 'app_meal_search')]
+    public function search(MealRepository $mealRepository, $search): Response
+    {
+        $activeuser = $this->getUser();
+        return $this->render('meal/index.html.twig', [
+            'meals' => $mealRepository->searchBy($search),
+            'user' => $activeuser,
+        ]);
     }
 }

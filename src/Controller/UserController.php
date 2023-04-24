@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\MealRepository;
 use App\Repository\UserRepository;
 use App\Service\FileUploader;
 use Doctrine\Persistence\ManagerRegistry;
@@ -16,12 +17,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     #[Route('/user', name: 'app_user_index', methods: ['GET'])]
-    public function index(UserRepository $userRepository): Response
+    public function index(UserRepository $userRepository, MealRepository $mealRepository): Response
     {
         $activeuser = $this->getUser();
+        $count = count($mealRepository->findBy(['approved' => 0]));
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->searchWithout($activeuser),
             'actuser' => $activeuser,
+            'count' => $count,
         ]);
     }
     
