@@ -14,7 +14,7 @@
         {% include "components/navbar.html" %}
 
     <h1 class = "d-flex align-items-center justify-content-center">All Meals</h1>
-<p class = "d-flex align-items-center justify-content-center"> Find here all existing recipes on this page </p>
+<p class = "d-flex align-items-center justify-content-center"> find here all existing recipes on this page </p>
   
     <!-- Browse Categories -->
         <ul class="nav nav-pills mb-3 d-flex align-items-center justify-content-center" id="ex1" role="tablist">
@@ -94,7 +94,7 @@
                     {% for meal in meals %}
                     <div class="col">
                         <div class="card col-md-8">
-                            <img src="{{meal.picture}}" alt="Girl in a jacket">              
+                            <img src="../uploads/{{meal.picture}}" alt="Girl in a jacket">              
                             <div class="card-body">
                                 <h5 class="card-title text-center"> {{meal.name}}</h5>
                                 <p class="card-text text-center">

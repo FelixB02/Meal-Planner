@@ -2,7 +2,8 @@
     text-decoration: none;
 }
 .nav li>a:hover{
-    color:darkred;
+    color:white;
+    background-color:green;
 }
 .waves{
     color:blue !important;
