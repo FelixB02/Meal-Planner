@@ -13,36 +13,33 @@
 {% block body %}
         {% include "components/navbar.html" %}
 
-    <h1 class = "d-flex align-items-center justify-content-center">All Meals</h1>
-    <div class="container">
-        <table class="table">
-            <tbody>
-                <tr>
-                    <th>Bild</th>
-                    <td><img src="{{ meal.picture }}" width="200" alt="no picture"></td>
-                </tr>
-                <tr>
-                    <th>Vorname</th>
-                    <td>{{ meal.name }}</td>
-                </tr>
-                <tr>
-                    <th>Nachname</th>
-                    {# <td>{{ user.nachname }}</td> #}
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    {# <td>{{ user.email }}</td> #}
-                </tr>
-                <tr>
-                    <th>Roles</th>
-                    {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
-                </tr>
-                <tr>
-                    <th>Password</th>
-                    {# <td>{{ user.password }}</td> #}
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <h1 class = "d-flex align-items-center justify-content-center">My Meal</h1>
+<div class="container justify-content-center">
+    <div class="card" style="width: 18rem;">
+        <img src="{{ meal.picture }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>{{meal.name}}</b></li>
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-evenly">
+                        <div><i>Category</i>: {{meal.category}}</div>
+                        <div></div>
+                        <div>{{meal.calories}} <i> calories</i></div>
+                    </div>
+                    A third item</li>
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-evenly">
+                        <div>{{meal.rating}} <i>User Rating</i></div>
+                        <div></div>
+                        <div>Cooking time: {{mee}}</div>
+
+                    </div>
+                </li>
+              </ul>
+        </div>
+      </div>
+</div>
+
 
 {% endblock %}
