@@ -34,7 +34,7 @@ class AllMealsController extends AbstractController
         ]);
     }
     #[Route('/all/meals/{id}', name: 'app_meal_detail', methods: ['GET'])]
-    public function pickDetail(MealRepository $meal, $filter): Response
+    public function pickDetail(MealRepository $meal): Response
     {
         return $this->render('all_meals/details.html.twig', [
             'controller_name' => 'HomeController',

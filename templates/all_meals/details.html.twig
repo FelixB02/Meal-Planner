@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <link href="{{ asset('css/mealstyles.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+
+{% block body %}
+        {% include "components/navbar.html" %}
+
+    <h1 class = "d-flex align-items-center justify-content-center">All Meals</h1>
+    <div class="container">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Bild</th>
+                    <td><img src="{{ meal.picture }}" width="200" alt="no picture"></td>
+                </tr>
+                <tr>
+                    <th>Vorname</th>
+                    <td>{{ meal.name }}</td>
+                </tr>
+                <tr>
+                    <th>Nachname</th>
+                    {# <td>{{ user.nachname }}</td> #}
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    {# <td>{{ user.email }}</td> #}
+                </tr>
+                <tr>
+                    <th>Roles</th>
+                    {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    {# <td>{{ user.password }}</td> #}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
