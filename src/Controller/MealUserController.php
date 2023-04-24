@@ -19,7 +19,7 @@ class MealUserController extends AbstractController
     public function index(MealRepository $mealRepository): Response
     {
         return $this->render('meal_user/index.html.twig', [
-            'meals' => $mealRepository->findBy(["fk_user"=>$this->getUser(), 'approved' => 0]),
+            'meals' => $mealRepository->findBy(["fk_user"=>$this->getUser(), 'approved' => 1]),
         ]);
     }
 
