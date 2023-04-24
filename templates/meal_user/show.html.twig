@@ -39,12 +39,22 @@
                 <th>Cooking_time</th>
                 <td>{{ meal.cookingTime }}</td>
             </tr>
+            
+            <tr>
+                <th>Ingredients</th>
+                <td>
+                    <ul>
+                        {% for ing in ingredient %}
+                            <li> {{ing}}</li>
+                        {% endfor %}
+
+                    </ul>
+                </td>
+            </tr>
         </tbody>
     </table>
 
     <a href="{{ path('app_meal_user_index') }}">back to list</a>
 
     <a href="{{ path('app_meal_user_edit', {'id': meal.id}) }}">edit</a>
-
-    {{ include('meal_user/_delete_form.html.twig') }}
 {% endblock %}

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -19,14 +20,22 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', null, array("attr" => ["class" => "form-control my-3"], "label" => "Email: "))
-            ->add('fname', TextType::class, array("attr" => ["class" => "form-control"], "label" => "Name: "))
-            ->add('lname', TextType::class, array("attr" => ["class" => "form-control"], "label" => "Last Name: "))
-            ->add('date_of_birth', DateType::class, array("attr" => ["class" => "form-control"], "label" => "Date of Birth: "))
-            ->add('phone', TextType::class, array("attr" => ["class" => "form-control"], "label" => "Phone: "))
-            ->add('gender', TextType::class, array("attr" => ["class" => "form-control"], "label" => "Gender: "))
+            ->add('email', null, array("attr" => ["class" => "form-control my-3 w-100"], "label" => "Email: "))
+            ->add('fname', TextType::class, array("attr" => ["class" => "form-control w-100"], "label" => "Name: "))
+            ->add('lname', TextType::class, array("attr" => ["class" => "form-control w-100"], "label" => "Last Name: "))
+            ->add('date_of_birth', DateType::class, [
+                'attr' => ['class' => 'form-control w-100', 'style' => 'margin-bottom:15px; width: 95%;'],
+                'widget' => 'single_text',])
+            ->add('phone', TextType::class, array("attr" => ["class" => "form-control w-100"], "label" => "Phone: "))
+            ->add('gender', ChoiceType::class, [
+                'attr' => ['class' => 'form-control w-100', 'style' => 'margin-bottom:15px; width: 95%;'],
+                'choices' =>[
+                    'Male' => "Male",
+                    'Female' => "Female",
+                    'Divers' => "Divers"], "label" => 'Gender:'
+                ])
 
-            ->add('blocked', null, array("attr" => ["class" => "d-none"], 'label' => false))
+            ->add('blocked', null, array("attr" => ["class" => "d-none w-100" ], 'label' => false))
             ->add('image', FileType::class, [
                 'label' => 'Picture (Image File)',
 
@@ -45,7 +54,7 @@ class RegistrationFormType extends AbstractType
                         'mimeTypesMessage' => 'Please upload a valid document',
                     ])
                 ],
-                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                'attr' => ['class' => 'form-control w-100', 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             // ->add('agreeTerms', CheckboxType::class, [
             // 'mapped' => false,
@@ -59,7 +68,7 @@ class RegistrationFormType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password', "class" => "form-control"],
+                'attr' => ['autocomplete' => 'new-password', "class" => "form-control w-100"],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
