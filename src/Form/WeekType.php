@@ -12,14 +12,13 @@ class WeekType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('fk_user')
             ->add('fk_monday')
             ->add('fk_tuesday')
             ->add('fk_wednesday')
             ->add('fk_thursday')
             ->add('fk_friday')
             ->add('fk_saturday')
-            ->add('fk_sunday')
+            ->add('fk_sunday') 
         ;
     }
 
