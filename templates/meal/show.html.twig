@@ -39,6 +39,13 @@
                 <th>Cooking_time</th>
                 <td>{{ meal.cookingTime }}</td>
             </tr>
+            {% for ing in ingredient %}
+            <tr>
+                <th>Ingredients</th>
+                <td>{{ ing }}</td>
+            </tr>
+            {% endfor %}
+            
         </tbody>
     </table>
 

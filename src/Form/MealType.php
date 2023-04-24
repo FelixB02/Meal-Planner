@@ -64,6 +64,9 @@ class MealType extends AbstractType
             ->add('cooking_time', Numbertype::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
             ])
+            ->add('ingredients', TextType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
+            ])
             ->add('save', SubmitType::class, [
                 'label' => 'Submit',
                 'attr' => ['class' => 'btn btn-success mybtn', 'style' => 'margin-bottom: 7px;']
@@ -74,6 +77,7 @@ class MealType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Meal::class,
+            'ingredients' => "",
         ]);
     }
 }
