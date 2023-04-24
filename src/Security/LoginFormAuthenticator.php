@@ -18,12 +18,13 @@ use Symfony\Component\Security\Http\Util\TargetPathTrait;
 class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
+    private $security;
 
     public const LOGIN_ROUTE = 'app_login';
 
     public function  __construct(UrlGeneratorInterface $urlGenerator, Security $security)
     {
-         $this->urlGenerator = $urlGenerator;
+        $this->urlGenerator = $urlGenerator;
         $this->security = $security;
     }
 
@@ -49,16 +50,16 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         if ($this->security->isGranted('ROLE_ADMIN')) {
-            return  new RedirectResponse($this ->urlGenerator->generate("app_home"));
-        } else{
-            return  new RedirectResponse($this ->urlGenerator->generate("app_home"));
+            return  new RedirectResponse($this->urlGenerator->generate("app_home"));
+        } else if ($this->security->isGranted('ROLE_USER')) {
+            return  new RedirectResponse($this->urlGenerator->generate("app_home"));
         }
-  
+
 
 
         // For example:
         // return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+        throw new \Exception('TODO: provide a valid redirect inside ' . __FILE__);
     }
 
     protected function getLoginUrl(Request $request): string
