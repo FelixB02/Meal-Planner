@@ -46,7 +46,7 @@
 
           {% if app.user %}
           <div class="mb-3 login-name">
-            <span class="nav-name">Hello, {{ app.user.fname }}</span>
+            <span class="nav-name"><a class="nav-name-link" href="">Hello, {{ app.user.fname }}</a></span>
             <img src="{{ asset('/uploads/' ~ app.user.image) }}" class="home-image" style="width: 3rem;">
             <a class="nav-link logoo" href="{{ path('app_logout') }}">Logout</a>
           </div>
