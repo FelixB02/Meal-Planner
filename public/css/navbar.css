@@ -2,40 +2,68 @@
 
 .custom {
 
-    background: linear-gradient(to right, rgba(108,175,91,255), #b4d4b0)
+  background: linear-gradient(to right, rgba(108, 175, 91, 255), #b4d4b0)
+}
 
-    }
-    
-    .user-profile {
-        display: flex;
-        align-items: center;
-      }
-      .user-profile img {
-        width: 40px;
-        height: 40px;
-        object-fit: cover;
-        border-radius: 50%;
-        margin-right: 10px;
-      }
-      .user-profile span {
-        font-weight: bold;
-        color: #ffffff;
-      }
-      .logout-button {
-        border: none;
-        background-color: #c0392b;
-        color: white;
-        padding: 10px 15px;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      .logout-button:hover {
-        background-color: #e74c3c;
-      }
-    
-      .logoo{
-        color: #eff0e8!important;
-      font-size: 1cm!important;}
-      
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-profile span {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.logout-button {
+  border: none;
+  background-color: #c0392b;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #e74c3c;
+}
+
+.logoo {
+  color: #eff0e8 !important;
+  font-size: 1cm !important;
+}
+
+.nav-name {
+  font-size: 1.2rem !important;
+  padding-right: 1rem;
+}
+
+.login-name {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 992px) {
+  .login-name {
+    margin-left: -16px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+  }
+
+  .home-image {
+    margin-left: -50px;
+  }
+
+
+}
