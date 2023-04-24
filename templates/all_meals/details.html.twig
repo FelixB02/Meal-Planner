@@ -15,73 +15,6 @@
 
     <h1 class="text-center">Your {{meal.name}}</h1>
 
-    {# <div class="container w-50">
-        <table>
-                <tr>
-                    <td>              
-                        <img src="{{ meal.picture }}" width="400" alt="...">
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex justify-content-start">
-                            <div>
-                                <b class="fnt17">{{meal.name}}</b>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <b>Category</b>: {{meal.category}}
-                                </div>
-                                <div>
-                                    {{meal.calories}} calories
-                                </div>
-                            </div>
-                        </td>
-                        <tr>
-                        <td>
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <b>User Rating</b>: {{meal.rating}}
-                                </div>
-                                <div>
-                                    <b>Cooking time</b>: {{meal.cookingtime}} minutes
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <b>Ingredients</b>: {{meal.ingredients}}
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    {{meal.preparation}}
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a class="btn btn-success" href="/all/meals">Back to all meals</a>
-
-                        </td>
-                    </tr>
-        </table>
-    </div> #}
-
     <div class="container w-50">
        
         <div class="card" style="width: 30rem;">
@@ -110,7 +43,7 @@
                                         <b>User Rating</b>: {{meal.rating}}
                                     </div>
                                     <div>
-                                        <b>Cooking time</b>: {{meal.cookingtime}} minutes
+                                        <b> Cooking time</b>: {{meal.cookingtime}} minutes
                                     </div>
                                 </div>
                             </td>
@@ -126,6 +59,7 @@
                         </tr>
                         <tr>
                             <td>
+                                <hr>
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         {{meal.preparation}}

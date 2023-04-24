@@ -5,7 +5,7 @@
 {% block stylesheets %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npmwiper@9/swiper-bundle.min.js"></script>
         <link href="{{ asset('css/mealstyles.css') }}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
@@ -89,7 +89,7 @@
       aria-labelledby="ex1-tab-1">
 
       {# ALL MEALS  #}
-            <div class="container ">
+            <div class="container">
                 <div class="row row-cols-2 row-cols-lg-3 g-1 align-items-center">
                     {% for meal in meals %}
                     <div class="col">
@@ -122,6 +122,9 @@
 
     </div>
     <div class="tab-pane fade show" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+    </div>
+    </div>
+
       
 
 
@@ -131,6 +134,18 @@
 
     
         
+    {% include "components/footer.html" %}    
 
 
+{% endblock %}
+{% block js %}
+        <script src='{{asset("js/home/script.js")}}'></script>
+        <script src='{{asset("js/nav.js")}}'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+        <script src="JS.js"></script>
 {% endblock %}

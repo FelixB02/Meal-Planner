@@ -1,9 +1,10 @@
-<link href="{{ asset('css/navbar.css') }}" rel="stylesheet" type="text/css" />
+{#
+<link href="{{ asset('css/navbar.css') }}" rel="stylesheet" type="text/css" /> #}
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary custom">
   <div class="container-fluid">
-    <a class="navbar-brand logoo" href="#"><img src="../../pictures/logo-white.png" alt="">healthymeal</a>
+    <a class="navbar-brand logoo" href="/"><img src="../../pictures/logo-white.png" alt="">healthymeal</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -44,8 +45,10 @@
           <!--<button class="logout-button"><a href="/login">Login</a></button></div> -->
 
           {% if app.user %}
-          <div class="mb-3">
-            {{ app.user.userIdentifier }}, <a class="nav-link logoo" href="{{ path('app_logout') }}">Logout</a>
+          <div class="mb-3 login-name">
+            <span class="nav-name">Hello, {{ app.user.fname }}</span>
+            <img src="{{ asset('/uploads/' ~ app.user.image) }}" class="home-image" style="width: 3rem;">
+            <a class="nav-link logoo" href="{{ path('app_logout') }}">Logout</a>
           </div>
           {% else %}
           <a class="nav-link logoo" href="/login">Login</a>
