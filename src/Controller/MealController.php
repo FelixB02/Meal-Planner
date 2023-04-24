@@ -51,6 +51,7 @@ class MealController extends AbstractController
 
             return $this->redirectToRoute('app_meal_index', [], Response::HTTP_SEE_OTHER);
         }
+        
 
         return $this->render('meal/new.html.twig', [
             'meal' => $meal,
@@ -130,6 +131,7 @@ class MealController extends AbstractController
             'count' => $count,
         ]);
     }
+    
 
     #[Route('/meal{id}/approve', name: 'app_meal_approve_one')]
     public function approveOne(Meal $meal, MealRepository $mealRepository): Response
