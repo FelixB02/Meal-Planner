@@ -22,7 +22,7 @@ class RegistrationFormType extends AbstractType
         ->add('email', null, array("attr"=>["class"=>"form-control my-3"], "label" => "Email: "))
         ->add('fname', TextType::class, array("attr"=>["class"=>"form-control"], "label" => "Name: "))
         ->add('lname', TextType::class, array("attr"=>["class"=>"form-control"], "label" => "Last Name: "))
-        ->add('date_of_birth', DateType::class, array("attr"=>["class"=>"form-control"], "label" => "Date of Bird: "))
+        ->add('date_of_birth', DateType::class, array("attr"=>["class"=>"form-control"], "label" => "Date of Birth: "))
         ->add('phone', TextType::class, array("attr"=>["class"=>"form-control"], "label" => "Phone: "))
         ->add('gender', TextType::class, array("attr"=>["class"=>"form-control"], "label" => "Gender: "))
         
