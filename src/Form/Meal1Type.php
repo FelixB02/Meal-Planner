@@ -62,8 +62,9 @@ class Meal1Type extends AbstractType
             ->add('cooking_time', Numbertype::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
             ])
-            // ->add('fk_user')
-        ;
+            ->add('ingredients', TextType::class, [
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
