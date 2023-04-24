@@ -1,32 +1,10 @@
 .textdeco{
     text-decoration: none;
 }
-ul li a{
-    color:green;
-}
-ul li>a:hover{
-    color:red;
-}
-.nav-link:hover{
-    color:red;
-}
-a:focus{
-    color:red;
-}
-.nav-link:hover{
-    color:red;
-}
-
-.nav ul>li>a:hover{
-    color:red;
-}
-.nav ul li a:hover{
-    color:red;
-}
 .nav li>a:hover{
-    color:red;
+    color:darkred;
 }
 .waves{
-    color:aliceblue;
+    color:blue !important;
     font-weight:bold;
 }
