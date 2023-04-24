@@ -27,7 +27,7 @@ class UserController extends AbstractController
             'count' => $count,
         ]);
     }
-    
+
 
     // #[Route('/user{id}', name: 'app_user_show', methods: ['GET'])]
     // public function yourProfile(User $user, $id): Response
@@ -78,7 +78,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('user/edit.html.twig', [
+        return $this->render('user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);
@@ -90,13 +90,13 @@ class UserController extends AbstractController
         $em = $doctrine->getManager();
         $user = $doctrine->getRepository(User::class)->find($id);
         $image = $user->getImage();
-        if(file_exists($this->getParameter("image_directory") . $image)){
+        if (file_exists($this->getParameter("image_directory") . $image)) {
             unlink($this->getParameter("image_directory") . $image);
         }
 
         $em->remove($user);
         $em->flush();
-        
+
 
         return $this->redirectToRoute('app_user_index');
     }
