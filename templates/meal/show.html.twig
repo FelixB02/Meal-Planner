@@ -53,4 +53,10 @@
 
     <a href="{{ path('app_meal_edit', {'id': meal.id}) }}">edit</a>
 
+    <button onclick="deleteswal('{{meal.id}}')">Delete</button>
+
+
+{% endblock %}
+{% block js %}
+    <script src='{{asset("js/userpage.js")}}'></script>
 {% endblock %}

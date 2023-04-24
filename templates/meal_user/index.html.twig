@@ -1,15 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+<link href="{{ asset('css/usermeal.css') }}" rel="stylesheet" type="text/css"/>
+
+{% endblock %}
+
 
 {% block title %}Meal index{% endblock %}
 
 {% block body %}
-    <h1>Meal index</h1>
+    {# <h1>Meal index</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Id test</th>
                 <th>Name</th>
                 <th>Picture</th>
                 <th>Category</th>
@@ -35,7 +40,32 @@
                     <a href="{{ path('app_meal_user_show', {'id': meal.id}) }}">show</a>
                     <a href="{{ path('app_meal_user_edit', {'id': meal.id}) }}">edit</a>
                 </td>
-            </tr>
+            </tr> #}
+
+                <div class="container my-4">
+    <h1 class="my-5 text-center">Check the Recipes ....</h1 >
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+  
+        {% for meal in meals %}
+   
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1615865417491-9941019fbc00?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ meal.name }}</h5>
+              <p class="card-text">{{ meal.preparation }} <a href="{{ path('app_meal_user_show', {'id': meal.id}) }}">show more ...</a>.</p>
+               </div>
+            {# <div class="card-footer">
+              <small class="text-muted"><td><img src="https://img.icons8.com/dotty/80/null/time.png"/>{{ meal.cookingTime }} Min</td></small>
+              
+            </div> #}
+              <ul class="list-group">
+    <li class="list-group-item list-group-item-success"><img src="https://img.icons8.com/dotty/80/null/time.png"/>{{ meal.cookingTime }} Min</li>
+    <li class="list-group-item list-group-item-danger"><img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-calories-fitness-at-home-flaticons-lineal-color-flat-icons-2.png"/>{{ meal.calories }} Cal.</li>
+  </ul>
+          </div>
+        </div>
         {% else %}
             <tr>
                 <td colspan="9">no records found</td>

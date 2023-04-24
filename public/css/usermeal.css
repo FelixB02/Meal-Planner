@@ -1,0 +1,32 @@
+body{
+    background-image: url(../pictures/login-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+.card{
+    box-shadow: #ffffff 35px 35px 30px -20px;
+}
+.card-title{
+    font-weight:600;
+}
+.img-fluid{
+  height: 300px!important;
+  cursor: pointer;
+  transition: transform 1s, filter 0.5s ease-in-out;
+  transform-origin: center center;
+  filter: brightness(50%);
+}
+.img-fluid:hover{
+    filter: brightness(100%);
+  transform: scale(0.9);
+}
+
+.card-footer{
+    background-color: #bec7ce ;
+}
+
+a {
+    text-decoration: none;
+  }
