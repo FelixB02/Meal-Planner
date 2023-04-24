@@ -46,6 +46,16 @@
 .nav-name {
   font-size: 1.2rem !important;
   padding-right: 1rem;
+  list-style-type: none;
+}
+
+.nav-name-link {
+  text-decoration: none !important;
+  color: #EFF0E8;
+}
+
+.nav-name-link:hover {
+  color: #EFF0E8;
 }
 
 .login-name {
