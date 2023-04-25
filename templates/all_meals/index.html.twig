@@ -40,7 +40,7 @@
                 role="tab"
                 aria-controls="ex1-pills-2"
                 aria-selected="false">
-                meat</a>
+                Meat</a>
             </li>
             <li class="nav-item " role="presentation">
             <a
@@ -51,7 +51,7 @@
                 role="tab"
                 aria-controls="ex1-pills-3"
                 aria-selected="false">
-                healthy</a>
+                Healthy</a>
             </li>
             <li class="nav-item" role="presentation">
                 <a
@@ -62,7 +62,7 @@
                 role="tab"
                 aria-controls="vegetarian"
                 aria-selected="false">
-                vegan</a>
+                Vegan</a>
             </li>
             <li class="nav-item" role="presentation">
                 <a
@@ -73,7 +73,7 @@
                 role="tab"
                 aria-controls="ex1-pills-4"
                 aria-selected="false"
-                >veggie</a
+                >Veggie</a
                 >
             </li>
             
@@ -94,7 +94,7 @@
                     {% for meal in meals %}
                     <div class="col">
                         <div class="card col-md-8">
-                            <img src="../uploads/{{meal.picture}}" alt="Girl in a jacket">              
+                            <img src="../uploads/{{meal.picture}}" alt="{{meal.name}}">              
                             <div class="card-body">
                                 <h5 class="card-title text-center"> {{meal.name}}</h5>
                                 <p class="card-text text-center">
