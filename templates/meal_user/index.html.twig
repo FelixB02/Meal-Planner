@@ -15,7 +15,8 @@
 
     <div class="container my-4">
     <h1 class="my-5 text-center">Check the Recipes ....</h1 >
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <a class="btn btn-primary" href="{{ path('app_meal_user_new') }}">Create new meal</a> 
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
 
   
         {% for meal in meals %}
@@ -46,5 +47,5 @@
     </table>
     
 
-    <a href="{{ path('app_meal_user_new') }}">Create new meal</a>
+    
 {% endblock %}

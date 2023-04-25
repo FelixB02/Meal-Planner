@@ -3,10 +3,12 @@
 {% block title %}Edit Meal{% endblock %}
 
 {% block body %}
-    <h1>Edit Meal</h1>
+<link href="{{ asset('css/newUserForm.css') }}" rel="stylesheet" type="text/css"/>
 
-    {{ include('meal_user/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_meal_user_index') }}">back to list</a>
-
+        {# {% include "/components/navbar.html" %} #}
+        <div class="container mt-5 myform   " style="border-radius: 12px;"> 
+        <h1>Edit Meal</h1>
+           {{ include('meal_user/_form.html.twig', {'button_label': 'Update'}) }}
+             <a  class=" btn mybtn" href="{{ path('app_meal_user_index') }}">Meals</a>
+        </div>
 {% endblock %}
