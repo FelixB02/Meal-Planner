@@ -14,13 +14,13 @@
         {% include "components/navbar.html" %}
 
     <h1 class = "d-flex align-items-center justify-content-center">All Meals</h1>
-<p class = "d-flex align-items-center justify-content-center"> find here all existing recipes on this page, sorted by category </p>
+<p class = "d-flex align-items-center justify-content-center"> Find here all existing recipes on this page, sorted by category </p>
   
     <!-- Browse Categories -->
         <ul class="nav nav-pills mb-3 d-flex align-items-center justify-content-center" id="ex1" role="tablist">
             <li class="nav-item" >
             <a
-                class="nav-link link-success active"
+                class="nav-link link-success"
                 id="ex1-tab-1"
                 data-mdb-toggle="pill"
                 href="/all/meals"
@@ -89,9 +89,9 @@
 
       {# ALL MEALS  #}
             <div class="container">
-                <div class="row row-cols-2 row-cols-lg-3 g-1 align-items-center">
+                <div class="row">
                     {% for meal in meals %}
-                    <div class="col">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
                         <div class="card col-md-8">
                             <img src="../uploads/{{meal.picture}}" alt="{{meal.name}}">              
                             <div class="card-body">
@@ -101,7 +101,6 @@
                                     <a class="card-text text-end caloriestext textdeco">  {{meal.calories}} calories</a>
                                     <br>
                                     <a class="btn btn-success" href="{{ path('app_meal_detail', {'id': meal.id}) }}">Details</a>
-
                                 </p>
                             </div>
                         </div>
@@ -109,30 +108,19 @@
                     {% else %}
                         <br>
                         <p></p>
-                       <div class="container ms-3">
-                        <img src ="{{ asset('pictures/sorry.jpg') }}" width="300">
-                        <p class="text-start text-danger">no meals found</p>
+                        <div class="container no-content">
+                            <img src ="{{ asset('pictures/sorry.jpg') }}" width="300">
+                            <p class="text-center text-danger">Mo Meals found</p>
                         </div>
-                       
                     {% endfor %}
-                </div>
+                {# </div> #}
             </div>
             {# ALL MEALS END  #}
-
-    </div>
-    <div class="tab-pane fade show" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-    </div>
-    </div>
-
-      
-
-
-    
-
-        
-
-    
-        
+        </div>
+        <div class="tab-pane fade show" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+        </div>
+</div>
+</div>
     {% include "components/footer.html" %}    
 
 
