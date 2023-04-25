@@ -24,18 +24,21 @@ class AllMealsController extends AbstractController
         ]);
     }
     #[Route('/all/meals/details/{id}', name: 'app_meal_detail', methods: ['GET'])]
-    public function pickDetail(Meal $meal): Response
+    public function pickDetail(Meal $meal, $id, MealRepository $mealRepository): Response
     {
+        $ing = $mealRepository->find(['id' => $id]);
+        $final = $ing->getIngredients();
+        $final = explode(',', $final);
+
         return $this->render('all_meals/details.html.twig', [
-            'controller_name' => 'HomeController',
             'meal' => $meal,
+            'ingredients' => $final,
         ]);
     }
     #[Route('/all/meals/{filter}', name: 'app_all_filter')]
     public function sort(MealRepository $mealRepository, $filter): Response
     {
         return $this->render('all_meals/index.html.twig', [
-            'controller_name' => 'HomeController',
             'meals' => $mealRepository->findBy(['category' => $filter]),
             
 

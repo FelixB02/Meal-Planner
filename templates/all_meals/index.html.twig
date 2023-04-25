@@ -6,9 +6,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
         <script src="https://cdn.jsdelivr.net/npmwiper@9/swiper-bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-
         <link href="{{ asset('css/mealstyles.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('css/usermeal.css') }}" rel="stylesheet" type="text/css"/>
 
@@ -18,8 +15,8 @@
 {% block body %}
         {% include "components/navbar.html" %}
 
-    <h1 class = "d-flex align-items-center justify-content-center">All Meals</h1>
-<p class = "d-flex align-items-center justify-content-center"> Find here all existing recipes on this page, sorted by category </p>
+    <h1 class = "d-flex align-items-center justify-content-center" style="font-size: 3.3rem; margin-top: 1rem;">All Meals</h1>
+    <p class = "d-flex align-items-center justify-content-center" style="color: white; font-size: 1.7rem;"> Find here all existing recipes on this page, sorted by category </p>
   
     <!-- Browse Categories -->
         <ul class="nav nav-pills mb-3 d-flex align-items-center justify-content-center" id="ex1" role="tablist">
@@ -67,6 +64,7 @@
                 aria-controls="vegetarian"
                 aria-selected="false">
                 Vegan</a>
+
             </li>
             <li class="nav-item" >
                 <a
@@ -77,10 +75,8 @@
                 role="tab"
                 aria-controls="ex1-pills-4"
                 aria-selected="false"
-                >Veggie</a
-                >
+                >Veggie</a>
             </li>
-            
         </ul>
   <!-- Pills navs -->
   
@@ -96,16 +92,14 @@
                 <div class="row">
                     {% for meal in meals %}
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                        <div class="card col-md-8">
-                            <img src="../uploads/{{meal.picture}}" alt="{{meal.name}}">              
+                        <div class="card" style="height: 30rem; margin-bottom:1rem;">
+                            <img height="260px" src="{{asset('uploads/' ~ meal.picture)}}" alt="{{meal.name}}">              
                             <div class="card-body">
                                 <h5 class="card-title text-center"> {{meal.name}}</h5>
                                 <p class="card-text text-center">
-                                    {{meal.rating}} stars (rated by users), Category: {{meal.category}},
-                                    <a class="card-text text-end caloriestext textdeco">  {{meal.calories}} calories</a>
-                                    <br>
-                                    <a class="btn btn-success" href="{{ path('app_meal_detail', {'id': meal.id}) }}">Details</a>
+                                    {{meal.rating}} Stars (rated by Users)
                                 </p>
+                                <a class="dropbtn" href="{{ path('app_meal_detail', {'id': meal.id}) }}">Details</a>
                             </div>
                         </div>
                     </div>

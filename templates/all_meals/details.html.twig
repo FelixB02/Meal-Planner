@@ -13,11 +13,11 @@
 {% block body %}
         {% include "components/navbar.html" %}
 
-    <h1 class="text-center mt-3">Your {{meal.name}} <small class="text-muted">recipe</small></h1>
+    <h1 class="text-center mt-3">{{meal.name}} Recipe</h1>
 
 
     <div class="container d-flex justify-content-center">
-        <div class="card" style="width: 45rem;">
+        <div class="card" style="width: 45rem; margin-bottom: 1rem;">
             <img src="/uploads/{{meal.picture}}" class="card-img-top w-100 h-75" alt="..">
             <div class="card-body">
             <h5 class="card-header text-center"><small class="text-muted">{{meal.name}}</small></h5>
@@ -51,7 +51,14 @@
                             <td>
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <b>Ingredients</b>: {{meal.ingredients}}
+                                        <b>Ingredients</b>:
+                                        {% if meal.ingredients %}
+                                        <ul>
+                                        {% for ing in ingredients %}
+                                            <li>{{ing}}</li>
+                                        {% endfor %}
+                                        </ul>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </td>
@@ -72,7 +79,7 @@
                                 <div class="d-flex justify-content-between">
                                 <a class="dropbtn text-center" style="text-decoration: none;" href="/all/meals">Back to all meals</a>
                                 <div class="dropup">
-                                    <button type="button" class="dropbtn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                                    <button type="button" class="dropbtn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Dropdown</button>
                                     <div class="dropdown-menu dropdown-content">
                                       <a href="/week/{{meal.id}}&1">Monday</a>
                                       <a href="/week/{{meal.id}}&2">Tuesday</a>
@@ -93,9 +100,5 @@
                 </p>
             </div>
         </div>
-</div>
-
-
-
-
+    </div>
 {% endblock %}
