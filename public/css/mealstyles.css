@@ -13,3 +13,6 @@
     font-style: italic;
     color:green;
 }
+.nav li>a:active{
+    background-color: blue;
+}
