@@ -1,48 +1,52 @@
-body{
-    background-image: url(../pictures/login-bg.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+body {
+  background-image: url(../pictures/login-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
 }
-.card{
-    box-shadow: #ffffff 35px 35px 30px -20px;
+
+.card {
+  box-shadow: #ffffff 35px 35px 30px -20px;
 }
-.card-title{
-    font-weight:600;
-    font-family: 'Amatic SC', cursive;
-    text-align: center;
-    font-size: 1.5cm;
-    color:#69C20E;
+
+.card-title {
+  font-weight: 600;
+  font-family: 'Amatic SC', cursive;
+  text-align: center;
+  font-size: 1.5cm;
+  color: #69C20E;
 }
-.img-fluid{
-  height: 300px!important;
+
+.img-fluid {
+  height: 300px !important;
   cursor: pointer;
   transition: transform 1s, filter 0.5s ease-in-out;
   transform-origin: center center;
   filter: brightness(50%);
 }
-.img-fluid:hover{
-    filter: brightness(100%);
+
+.img-fluid:hover {
+  filter: brightness(100%);
   transform: scale(0.9);
 }
 
-.card-footer{
-    background-color: #bec7ce ;
+.card-footer {
+  background-color: #bec7ce;
 }
 
 a {
-    text-decoration: none;
-  }
+  text-decoration: none;
+}
 
-  h1{
-    font-family: 'Fredericka the Great', cursive;
-    font-size: 2cm;
-    color: #ffffff;
-  }
+h1 {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2cm;
+  color: #ffffff;
+}
 
-  .card-text{
-    font-family: 'Lato', sans-serif;
-    font-size: large;
-    color: #727272;
-  }
+.card-text {
+  font-family: 'Lato', sans-serif;
+  font-size: large;
+  color: #727272;
+}

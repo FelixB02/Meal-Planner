@@ -1,4 +1,4 @@
-body{
+body {
     background-image: url(../pictures/login-bg.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -6,5 +6,14 @@ body{
 
 }
 
-.container{background-color: rgba(240,248,255, 0.5);
-border-radius: 20px;}
+.container {
+    background-color: rgba(240, 248, 255, 0.5);
+    border-radius: 20px;
+}
+
+.img-user-details {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 15px;
+    margin-left: -13px;
+}
