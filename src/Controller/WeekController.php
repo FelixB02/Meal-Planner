@@ -41,7 +41,7 @@ class WeekController extends AbstractController
         $week->setFkUser($this->getUser());
         $weekRepository->save($week, true);
 
-        return $this->redirectToRoute('app_meal_user_show', ['id' => $id
+        return $this->redirectToRoute('app_meal_detail', ['id' => $id
         ]);
     }
 
