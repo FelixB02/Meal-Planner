@@ -2,9 +2,43 @@
 
 {% block title %}Meal{% endblock %}
 
-{% block body %}
-    <h1>Meal</h1>
+{% block stylesheets %}
+<link href="{{ asset('css/showmealadmin.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
 
+{% block body %}
+    <h1>Recipe Card</h1>
+
+    <div class="container">
+
+    <div class="card mx-auto px-auto" >
+  <img src="../uploads/{{ meal.picture }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ meal.name }}</h5>
+    <p class="card-text">{{ meal.preparation }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><img src="https://img.icons8.com/ios/40/null/category.png"/> Category:{{ meal.category }}</li>
+    <li class="list-group-item"><img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/40/null/external-calories-fitness-at-home-flaticons-lineal-color-flat-icons-2.png"/> Calories:{{ meal.calories }}</li>
+    <li class="list-group-item"><img src="https://img.icons8.com/dotty/40/null/time.png"/> Time:{{ meal.cookingTime }}</li>
+    <li class="list-group-item"><img src="https://img.icons8.com/external-outline-berkahicon/40/null/external-ingredient-linely-baking-outline-berkahicon.png"/> Ingredients{% for ing in ingredient %}
+            
+                
+             <ul>
+  <li>{{ ing }}</li>
+</ul>  
+            
+            {% endfor %}</li>
+  </ul>
+  <div class="card-body">
+    <a class="btn btn-warning" href="{{ path('app_meal_edit', {'id': meal.id}) }}" class="card-link"><img src="https://img.icons8.com/ios-filled/25/null/edit--v1.png"/>Edit</a>
+    <button class="btn btn-danger" onclick="deleteswal('{{meal.id}}')">Delete</button>
+  </div>
+</div>
+
+
+
+{# 
     <table class="table">
         <tbody>
             <tr>
@@ -47,15 +81,15 @@
             {% endfor %}
             
         </tbody>
-    </table>
+    </table> #}
 
-    <a href="{{ path('app_meal_index') }}">back to list</a>
+    <div class="container d-flex p-5"><a class="btn btn-success mx-auto" href="{{ path('app_meal_index') }}"><img src="https://img.icons8.com/sf-regular-filled/50/null/circled-left--v2.png"/> back to list</a> </div>
 
-    <a href="{{ path('app_meal_edit', {'id': meal.id}) }}">edit</a>
+    {# <a href="{{ path('app_meal_edit', {'id': meal.id}) }}">edit</a>
 
-    <button onclick="deleteswal('{{meal.id}}')">Delete</button>
-
-
+    <button class="btn btn-danger" onclick="deleteswal('{{meal.id}}')">Delete</button> #}
+</div>
+</div>
 {% endblock %}
 {% block js %}
     <script src='{{asset("js/userpage.js")}}'></script>
