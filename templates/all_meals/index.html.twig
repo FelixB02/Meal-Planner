@@ -15,6 +15,7 @@
 
     <h1 class = "d-flex align-items-center justify-content-center">All Meals</h1>
 <p class = "d-flex align-items-center justify-content-center"> find here all existing recipes on this page, sorted by category </p>
+{# <p class = "d-flex align-items-center justify-content-center"> <i>your actual pick: {{meals.category}}</i> </p> #}
   
     <!-- Browse Categories -->
         <ul class="nav nav-pills mb-3 d-flex align-items-center justify-content-center" id="ex1" role="tablist">
@@ -98,8 +99,8 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center"> {{meal.name}}</h5>
                                 <p class="card-text text-center">
-                                    {{meal.rating}} stars (rated by users),
-                                    <a class="card-text text-end caloriestext textdeco"> {{meal.calories}} calories</a>
+                                    {{meal.rating}} stars (rated by users), Category: {{meal.category}},
+                                    <a class="card-text text-end caloriestext textdeco">  {{meal.calories}} calories</a>
                                     <br>
                                     <a class="btn btn-success" href="{{ path('app_meal_detail', {'id': meal.id}) }}">Details</a>
 
