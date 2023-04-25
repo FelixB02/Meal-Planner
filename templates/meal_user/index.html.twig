@@ -15,9 +15,9 @@
 
     <div class="container my-4">
     <h1 class="my-5 text-center">Check the Recipes ....</h1 >
-    <a class="btn btn-primary" href="{{ path('app_meal_user_new') }}">Create new meal</a> 
+      <a class="btn btn-warning mb-2" class=""href="{{ path('app_home') }}" >Home</a><br>
+    <a class="btn btn-primary" href="{{ path('app_meal_user_new') }}">Create new meal</a>
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
-
   
         {% for meal in meals %}
    
@@ -36,15 +36,21 @@
     <li class="list-group-item list-group-item-success"><img src="https://img.icons8.com/dotty/80/null/time.png"/>{{ meal.cookingTime }} Min</li>
     <li class="list-group-item list-group-item-danger"><img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-calories-fitness-at-home-flaticons-lineal-color-flat-icons-2.png"/>{{ meal.calories }} Cal.</li>
   </ul>
-          </div>
+          </div>       
         </div>
+        
         {% else %}
             <tr>
                 <td colspan="9">no records found</td>
             </tr>
         {% endfor %}
+
         </tbody>
+
     </table>
+          </div>       <br>
+          </div>       
+
     
 
     
