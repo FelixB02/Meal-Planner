@@ -13,10 +13,10 @@
 {% block body %}
         {% include "components/navbar.html" %}
 
-    <h1 class="text-center">Your {{meal.name}} <small class="text-muted">recipe</small></h1>
+    <h1 class="text-center mt-3">Your {{meal.name}} <small class="text-muted">recipe</small></h1>
 
-    <div class="container w-50">
-       
+
+    <div class="container d-flex justify-content-center">
         <div class="card" style="width: 30rem;">
             <img src="../uploads/{{meal.picture}}" class="card-img-top" alt="...">
             <div class="card-body">
@@ -70,7 +70,9 @@
                         <tr>
                             <td>
                                 <hr>
-                                <a class="btn btn-success" href="/all/meals">Back to all meals</a>
+                                <div>
+                                <a class="btn btn-success text-center" href="/all/meals">Back to all meals</a>
+                                </div>
                                 <br>
                                 <br>
                                 <i class="text-success">Have fun with our recipes and enjoy your favorite meal!</i>
