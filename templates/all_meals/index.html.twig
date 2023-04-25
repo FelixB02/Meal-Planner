@@ -19,7 +19,7 @@
         {% include "components/navbar.html" %}
 
     <h1 class = "d-flex align-items-center justify-content-center">All Meals</h1>
-<p class = "d-flex align-items-center justify-content-center"> find here all existing recipes on this page, sorted by category </p>
+<p class = "d-flex align-items-center justify-content-center"> Find here all existing recipes on this page, sorted by category </p>
   
     <!-- Browse Categories -->
         <ul class="nav nav-pills mb-3 d-flex align-items-center justify-content-center" id="ex1" role="tablist">
@@ -92,51 +92,40 @@
       role="tabpanel"
       aria-labelledby="ex1-tab-1">
       {# ALL MEALS  #}
-           <div class="container row row-cols-1 row-cols-md-3  mt-1">
+
+            <div class="container">
+                <div class="row">
                     {% for meal in meals %}
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="../../uploads/{{ meal.picture }}" class="card-img-top img-fluid" alt="...">
-                                <div class="card-body">
-                                <h5 class="card-title">{{ meal.name }}</h5>
-                                <p class="card-text">{{ meal.preparation }} <a href="{{ path('app_meal_user_show', {'id': meal.id}) }}">show more ...</a>.</p>
-                                </div>
-                                {# <div class="card-footer">
-                                <small class="text-muted"><td><img src="https://img.icons8.com/dotty/80/null/time.png"/>{{ meal.cookingTime }} Min</td></small>
-                                
-                                </div> #}
-                                <ul class="list-group">
-                        <li class="list-group-item list-group-item-success"><img src="https://img.icons8.com/dotty/80/null/time.png"/>{{ meal.cookingTime }} Min</li>
-                        <li class="list-group-item list-group-item-danger"><img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-calories-fitness-at-home-flaticons-lineal-color-flat-icons-2.png"/>{{ meal.calories }} Cal.</li>
-                        </ul>
-                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                        <div class="card col-md-8">
+                            <img src="../uploads/{{meal.picture}}" alt="{{meal.name}}">              
+                            <div class="card-body">
+                                <h5 class="card-title text-center"> {{meal.name}}</h5>
+                                <p class="card-text text-center">
+                                    {{meal.rating}} stars (rated by users), Category: {{meal.category}},
+                                    <a class="card-text text-end caloriestext textdeco">  {{meal.calories}} calories</a>
+                                    <br>
+                                    <a class="btn btn-success" href="{{ path('app_meal_detail', {'id': meal.id}) }}">Details</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     {% else %}
                         <br>
                         <p></p>
-                       <div class="container-fluid">
-                        <img src ="{{ asset('pictures/sorry.jpg') }}" width="300">
-                        <p class="text-start text-danger">no meals found</p>
+                        <div class="container no-content">
+                            <img src ="{{ asset('pictures/sorry.jpg') }}" width="300">
+                            <p class="text-center text-danger">Mo Meals found</p>
                         </div>
-                       
                     {% endfor %}
-                </div>
-
-
-
-
+                {# </div> #}
             </div>
             {# ALL MEALS END  #}
-
-    </div>
-    <div class="tab-pane fade show" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-    </div>
-    </div>
-    
-
-
-    
-        
+        </div>
+        <div class="tab-pane fade show" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+        </div>
+</div>
+</div>
     {% include "components/footer.html" %}    
 
 
