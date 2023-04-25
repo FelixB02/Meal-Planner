@@ -19,7 +19,7 @@ class MealUserController extends AbstractController
     public function index(MealRepository $mealRepository): Response
     {
         return $this->render('meal_user/index.html.twig', [
-            'meals' => $mealRepository->findBy(["fk_user"=>$this->getUser(), 'approved' => 1]),
+            'meals' => $mealRepository->findBy(["fk_user" => $this->getUser(), 'approved' => 1]),
         ]);
     }
 
@@ -38,13 +38,13 @@ class MealUserController extends AbstractController
                 $imageName = $fileUploader->upload($image);
                 $meal->setPicture($imageName);
             }
-            
+
             $mealRepository->save($meal, true);
 
             return $this->redirectToRoute('app_meal_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('meal_user/new.html.twig', [
+        return $this->render('meal_user/new.html.twig', [
             'meal' => $meal,
             'form' => $form,
         ]);
@@ -82,7 +82,7 @@ class MealUserController extends AbstractController
             return $this->redirectToRoute('app_meal_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('meal_user/edit.html.twig', [
+        return $this->render('meal_user/edit.html.twig', [
             'meal' => $meal,
             'form' => $form,
         ]);

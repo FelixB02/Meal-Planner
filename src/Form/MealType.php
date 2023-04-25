@@ -18,39 +18,40 @@ class MealType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        
+
         $builder
             ->add('name', TextType::class, [
-            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             ->add('picture', FileType::class, [
-            'label' => 'Picture (Image File)',
+                'label' => 'Picture (Image File)',
 
-            'mapped' => false,
+                'mapped' => false,
 
-            'required' => false,
+                'required' => false,
 
-            'constraints' => [
-                new File([
-                    'maxSize' => '1024k',
-                    'mimeTypes' => [
-                        'image/png',
-                        'image/jpg',
-                        'image/jpeg',
-                    ],
-                    'mimeTypesMessage' => 'Please upload a valid document',
-                ])
-            ],
-            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpg',
+                            'image/jpeg',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid document',
+                    ])
+                ],
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             ->add('category', ChoiceType::class, [
-            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
-            'choices' =>[
-                '' => null,
-                'Vegie' => "Vegie",
-                'Vegan' => "Vegan",
-                'Meat' => "Meat",
-                'Healthy' => "Healthy"],
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
+                'choices' => [
+                    '' => null,
+                    'Veggie' => "Veggie",
+                    'Vegan' => "Vegan",
+                    'Meat' => "Meat",
+                    'Healthy' => "Healthy"
+                ],
             ])
             ->add('calories', NumberType::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']

@@ -20,14 +20,14 @@ class Meal1Type extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
-                ])
-            ->add('picture',FileType::class,[
+            ])
+            ->add('picture', FileType::class, [
                 'label' => 'Picture (Image File)',
-    
+
                 'mapped' => false,
-    
+
                 'required' => false,
-    
+
                 'constraints' => [
                     new File([
                         'maxSize' => '1024k',
@@ -40,23 +40,24 @@ class Meal1Type extends AbstractType
                     ])
                 ],
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
-                ])
-            ->add('category', ChoiceType::class,[
+            ])
+            ->add('category', ChoiceType::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
-                'choices' =>[
+                'choices' => [
                     '' => null,
-                    'Vegie' => "Vegie",
+                    'Veggie' => "Veggie",
                     'Vegan' => "Vegan",
                     'Meat' => "Meat",
-                    'Healthy' => "Healthy"],
-                ])
-            ->add('calories',NumberType::class,[
+                    'Healthy' => "Healthy"
+                ],
+            ])
+            ->add('calories', NumberType::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             ->add('rating', NumberType::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
             ])
-            ->add('preparation',TextareaType::class, [
+            ->add('preparation', TextareaType::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             ->add('cooking_time', Numbertype::class, [
