@@ -1,33 +1,96 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Week index{% endblock %}
+{% block stylesheets %}
+<style>
+    .heading {
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+{% endblock %}
 
 {% block body %}
     <h1>Week index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for week in weeks %}
-            <tr>
-                <td>{{ week.id }}</td>
-                <td>
-                    <a href="{{ path('app_week_show', {'id': week.id}) }}">show</a>
-                    <a href="{{ path('app_week_edit', {'id': week.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_week_new') }}">Create new</a>
+        <div class="container">
+            <div class="row">
+                {% if monday.name is defined %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card" style="width: 18rem;">
+                    <img height="180px" src="{{asset("uploads/" ~ monday.picture)}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">{{monday.name}}(monday)</h5>
+                      <a href="#" class="btn btn-primary">See Details</a>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+                {% if tuesday.name is defined %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card" style="width: 18rem;">
+                    <img height="180px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">{{tuesday.name}}(tuesday)</h5>
+                      <a href="#" class="btn btn-primary">See Details</a>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+                {% if wednesday.name is defined %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card" style="width: 18rem;">
+                    <img height="180px" src="{{asset("uploads/" ~ wednesday.picture)}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">{{wednesday.name}}(wednesday)</h5>
+                      <a href="#" class="btn btn-primary">See Details</a>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+                {% if thursday.name is defined %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card" style="width: 18rem;">
+                        <img height="180px" src="{{asset("uploads/" ~ thursday.picture)}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title text-center">{{thursday.name}}(thursday)</h5>
+                        <a href="#" class="btn btn-primary">See Details</a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if friday.name is defined %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card" style="width: 18rem;">
+                    <img height="180px" src="{{asset("uploads/" ~ friday.picture)}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">{{friday.name}}(friday)</h5>
+                      <a href="#" class="btn btn-primary">See Details</a>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+                {% if saturday.name is defined %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card" style="width: 18rem;">
+                    <img height="180px" src="{{asset("uploads/" ~ saturday.picture)}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">{{saturday.name}}(saturday)</h5>
+                      <a href="#" class="btn btn-primary">See Details</a>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+                {% if sunday.name is defined %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card" style="width: 18rem;">
+                    <img height="180px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">{{tuesday.name}}(sunday)</h5>
+                      <a href="#" class="btn btn-primary">See Details</a>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
 {% endblock %}
