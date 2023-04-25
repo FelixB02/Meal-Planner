@@ -88,8 +88,7 @@
       role="tabpanel"
       aria-labelledby="ex1-tab-1">
       {# ALL MEALS  #}
-            <div class="container">
-                <div class="row">
+           <div class="row row-cols-1 row-cols-md-2  mt-1">
                     {% for meal in meals %}
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
                         <div class="card" style="height: 30rem; margin-bottom:1rem;">
@@ -106,19 +105,29 @@
                     {% else %}
                         <br>
                         <p></p>
-                        <div class="container no-content">
-                            <img src ="{{ asset('pictures/sorry.jpg') }}" width="300">
-                            <p class="text-center text-danger">Mo Meals found</p>
+                       <div class="container-fluid">
+                        <img src ="{{ asset('pictures/sorry.jpg') }}" width="300">
+                        <p class="text-start text-danger">no meals found</p>
                         </div>
+                       
                     {% endfor %}
-                {# </div> #}
+                </div>
+
+
+
+
             </div>
             {# ALL MEALS END  #}
-        </div>
-        <div class="tab-pane fade show" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-        </div>
-</div>
-</div>
+
+    </div>
+    <div class="tab-pane fade show" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+    </div>
+    </div>
+    
+
+
+    
+        
     {% include "components/footer.html" %}    
 
 
