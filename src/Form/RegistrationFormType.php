@@ -20,22 +20,25 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', null, array("attr" => ["class" => "form-control my-3 w-100"], "label" => "Email: "))
-            ->add('fname', TextType::class, array("attr" => ["class" => "form-control w-100"], "label" => "Name: "))
-            ->add('lname', TextType::class, array("attr" => ["class" => "form-control w-100"], "label" => "Last Name: "))
+            ->add('email', null, array("attr" => ["class" => "form-control my-3 w-100", "placeholder" => "Write a Email"], "label" => "Email: "))
+            ->add('fname', TextType::class, array("attr" => ["class" => "form-control w-100", "placeholder" => "Write your First Name"], "label" => "First Name: "))
+            ->add('lname', TextType::class, array("attr" => ["class" => "form-control w-100", "placeholder" => "Write your Last Name"], "label" => "Last Name: "))
             ->add('date_of_birth', DateType::class, [
                 'attr' => ['class' => 'form-control w-100', 'style' => 'margin-bottom:15px; width: 95%;'],
-                'widget' => 'single_text',])
-            ->add('phone', TextType::class, array("attr" => ["class" => "form-control w-100"], "label" => "Phone: "))
+                'widget' => 'single_text',
+            ])
+            ->add('phone', TextType::class, array("attr" => ["class" => "form-control w-100", "placeholder" => "Write your Phone Number"], "label" => "Phone: "))
             ->add('gender', ChoiceType::class, [
                 'attr' => ['class' => 'form-control w-100', 'style' => 'margin-bottom:15px; width: 95%;'],
-                'choices' =>[
+                'choices' => [
+                    'Select a gender:' => '',
                     'Male' => "Male",
                     'Female' => "Female",
-                    'Divers' => "Divers"], "label" => 'Gender:'
-                ])
+                    'Divers' => "Divers"
+                ], "label" => 'Gender:'
+            ])
 
-            ->add('blocked', null, array("attr" => ["class" => "d-none w-100" ], 'label' => false))
+            ->add('blocked', null, array("attr" => ["class" => "d-none w-100"], 'label' => false))
             ->add('image', FileType::class, [
                 'label' => 'Picture (Image File)',
 
@@ -68,7 +71,7 @@ class RegistrationFormType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password', "class" => "form-control w-100"],
+                'attr' => ['autocomplete' => 'new-password', "class" => "form-control w-100", "placeholder" => "Write a Password"],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
