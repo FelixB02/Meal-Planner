@@ -42,12 +42,14 @@ class UserController extends AbstractController
 
 
     #[Route('/user/{search}', name: 'app_user_search')]
-    public function search(UserRepository $userRepository, $search): Response
+    public function search(UserRepository $userRepository, $search, MealRepository $mealRepository): Response
     {
         $activeuser = $this->getUser();
+        $count = count($mealRepository->findBy(['approved' => 0]));
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->searchBy($search),
             'actuser' => $activeuser,
+            'count' => $count,
         ]);
     }
 

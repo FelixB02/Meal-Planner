@@ -141,13 +141,15 @@ class MealController extends AbstractController
         return $this->redirectToRoute('app_meal_approve');
     }
 
-    #[Route('/meal{search}', name: 'app_meal_search')]
+    #[Route('/meal/{search}', name: 'app_meal_search')]
     public function search(MealRepository $mealRepository, $search): Response
     {
         $activeuser = $this->getUser();
+        $count = count($mealRepository->findBy(['approved' => 0]));
         return $this->render('meal/index.html.twig', [
             'meals' => $mealRepository->searchBy($search),
             'user' => $activeuser,
+            'count' => $count,
         ]);
     }
 }

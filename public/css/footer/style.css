@@ -27,6 +27,7 @@
     font-size:20px;
     font-weight: 300;
     line-height: 45px;
+    width: 45px;
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
@@ -44,19 +45,44 @@
 }
 
 .twitter {
-  color: lightskyblue;
+  color: #1DA1F2;
 }
 
 .btn-2{
-    transition: all 2s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
     letter-spacing: 5px;
     border: none;
-    box-shadow: 0px 0px 5px 0px #176c6c;
+    box-shadow: 0px 0px 5px 0px #062f2f;
 }
-.btn-2:hover{
-    background-color: green;
-    /* letter-spacing: 0; */
+.facebook:hover{
+    background-color: blue;
     border: none;
     box-shadow: 0px 0px 1px -4px #fff inset , 0px 0px 11px 1px #4a9a9a46 ;
+    color: white;
 }
+
+.instagramm:hover{
+  background-color: #f1243f;
+  border: none;
+  box-shadow: 0px 0px 1px -4px #fff inset , 0px 0px 11px 1px #4a9a9a46 ;
+  color: white;
+}
+
+.linkedin:hover{
+  background-color: #0072b1;
+  border: none;
+  box-shadow: 0px 0px 1px -4px #fff inset , 0px 0px 11px 1px #4a9a9a46 ;
+  color: white;
+}
+
+.twitter:hover{
+  background-color: #1DA1F2;
+  border: none;
+  box-shadow: 0px 0px 1px -4px #fff inset , 0px 0px 11px 1px #4a9a9a46 ;
+  color: white;
+}
+
+
+
+
 
