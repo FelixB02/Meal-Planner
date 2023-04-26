@@ -19,8 +19,6 @@ class AllMealsController extends AbstractController
         return $this->render('all_meals/index.html.twig', [
             'controller_name' => 'HomeController',
             'meals' => $mealRepository->findAll(),
-            
-
         ]);
     }
     #[Route('/all/meals/details/{id}', name: 'app_meal_detail', methods: ['GET'])]

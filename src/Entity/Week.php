@@ -18,24 +18,31 @@ class Week
     private ?User $fk_user = null;
 
     #[ORM\ManyToOne(inversedBy: 'weeks')]
+    #[ORM\JoinColumn(onDelete: 'set null')]
     private ?Meal $fk_monday = null;
 
     #[ORM\ManyToOne(inversedBy: 'weeks')]
+    #[ORM\JoinColumn(onDelete: 'set null')]
     private ?Meal $fk_tuesday = null;
 
     #[ORM\ManyToOne(inversedBy: 'weeks')]
+    #[ORM\JoinColumn(onDelete: 'set null')]
     private ?Meal $fk_wednesday = null;
 
     #[ORM\ManyToOne(inversedBy: 'weeks')]
+    #[ORM\JoinColumn(onDelete: 'set null')]
     private ?Meal $fk_thursday = null;
 
     #[ORM\ManyToOne(inversedBy: 'weeks')]
+    #[ORM\JoinColumn(onDelete: 'set null')]
     private ?Meal $fk_friday = null;
 
     #[ORM\ManyToOne(inversedBy: 'weeks')]
+    #[ORM\JoinColumn(onDelete: 'set null')]
     private ?Meal $fk_saturday = null;
 
     #[ORM\ManyToOne(inversedBy: 'weeks')]
+    #[ORM\JoinColumn(onDelete: 'set null')]
     private ?Meal $fk_sunday = null;
 
     public function getId(): ?int
