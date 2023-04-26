@@ -81,7 +81,7 @@
   <!-- Pills navs -->
   
   <!-- Pills content -->
-  <div class="tab-content d-flex align-items-center justify-content-center" id="ex1-content">
+  <div class="tab-content" id="ex1-content">
     <div
       class="tab-pane fade show active"
       id="ex1-pills-1"
@@ -92,7 +92,7 @@
            <div class="row" style="margin: 0;">
                     {% for meal in meals %}
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                        <div class="card" style="height: 30rem;">
+                        <div class="card mycard" style="height: 28rem; width:400px; margin: 0 auto">
                             <img height="260px" src="{{asset('uploads/' ~ meal.picture)}}" alt="{{meal.name}}">              
                             <div class="card-body">
                                 <h5 class="card-title text-center"> {{meal.name}}</h5>
