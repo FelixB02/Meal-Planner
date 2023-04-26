@@ -1,10 +1,11 @@
-
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary custom">
   <div class="container-fluid">
-    <a class="navbar-brand logoo navlogo" href="/"><img id="logo" src="../../pictures/logo-white.png" alt="">Healthymeal</a>
-    <button class="navbar-dark navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand logoo navlogo" href="/"><img id="logo" src="../../pictures/logo-white.png"
+        alt="">Healthymeal</a>
+    <button class="navbar-dark navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -16,12 +17,17 @@
 
           <a class="nav-link logoo" href="/all/meals">Meals <span>|</span></a>
         </li>
+        {# <li class="nav-item">
+
+          <a class="nav-link logoo" href="/week/">Planner <span>|</span></a>
+        </li> #}
         <li class="nav-item">
 
           {% if is_granted('ROLE_ADMIN') %}
           <a class="nav-link logoo" href="/admin/meal">Admin <span>|</span></a>
           {% elseif is_granted('ROLE_USER') %}
-          <a class="nav-link logoo" href="/user/meal/">My Recipe's <span>|</span></a>
+          <li><a class="nav-link logoo" href="/week/">Planner <span>|</span></a></li>
+          <a class="nav-link logoo" href="/user/meal/">My Recipe's</a>
           {% else %}
 
           {% endif %}
@@ -38,7 +44,8 @@
           <div class="login-name navbar-brand">
             <img src="{{ asset('/uploads/' ~ app.user.image) }}" class="home-image">
             <div class="dropdown">
-              <button type="button" class="dropbtn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">{{app.user.fname ~  " " ~ app.user.lname}}</button>
+              <button type="button" class="dropbtn11 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                aria-haspopup="true">{{app.user.fname ~ " " ~ app.user.lname}}</button>
               <div class="dropdown-menu dropdown-content">
                 <a href="{{ path('app_logout') }}">Logout</a>
                 <a href="{{ path('app_editself_index', {'id': app.user.id}) }}">Your Profile</a>
@@ -47,8 +54,8 @@
           </div>
           {% else %}
           <div class="logoutinfo">
-          <img src="{{ asset('/pictures/user.png')}}" class="home-image">
-          <a class="nav-link logoo" href="/login">Login</a>
+            <img src="{{ asset('/pictures/user.png')}}" class="home-image">
+            <a class="nav-link logoo" href="/login">Login</a>
           </div>
           {% endif %}
 

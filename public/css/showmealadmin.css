@@ -8,12 +8,13 @@ body {
 padding-bottom: 50px;
 }
 
-h1 {
+.hline{
+    margin-top: 3px;
     text-align: center;
-    color: #140887;
+    color: #4d4f64;
     font-family: 'Fredericka the Great', cursive;
     font-weight: 900;
-    font-size: 2cm;
+    font-size: 1.8cm;
 }
 
 .card{
