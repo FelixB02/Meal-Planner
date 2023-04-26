@@ -26,7 +26,7 @@
           {% if is_granted('ROLE_ADMIN') %}
           <a class="nav-link logoo" href="/admin/meal">Admin <span>|</span></a>
           {% elseif is_granted('ROLE_USER') %}
-          <li><a class="nav-link logoo" href="/user/meal/">Planner <span>|</span></a></li>
+          <li><a class="nav-link logoo" href="/week/">Planner <span>|</span></a></li>
           <a class="nav-link logoo" href="/user/meal/">My Recipe's</a>
           {% else %}
 
