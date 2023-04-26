@@ -44,6 +44,7 @@ class Meal
     private Collection $ingredientMeals;
 
     #[ORM\ManyToOne(inversedBy: 'meals')]
+    #[ORM\JoinColumn(onDelete: 'set null')]
     private ?User $fk_user = null;
 
     #[ORM\Column]

@@ -13,7 +13,8 @@ class Week
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'weeks')]
+    #[ORM\ManyToOne(inversedBy: 'weeks', cascade: ['remove', 'persist'])]
+    #[ORM\JoinColumn(onDelete: 'cascade')]
     private ?User $fk_user = null;
 
     #[ORM\ManyToOne(inversedBy: 'weeks')]
