@@ -14,7 +14,10 @@ body {
   }
 
 
-
+.weekdays {
+    width: 7rem!important;
+    background-color: red!important;
+}
 
 .btn-primary{
     margin: 10px;
