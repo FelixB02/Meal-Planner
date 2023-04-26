@@ -27,6 +27,7 @@
                     <p><i class="fa-solid fa-envelope"></i> &nbsp;&nbsp; {{ user.email}}</p>
                     <button onclick="deleteswal('{{user.id}}')" class="btn btn-danger mybtn2">Delete</button>
                     <a class="btn btn-success mybtn2" href="{{ path('app_home', {'id': user.id}) }}"> Back to Home</a>
+                    <a class="btn btn-success mybtn2" href="{{ path('app_editself_change_password') }}">Change Password</a>
 
 
                 </div>
@@ -37,5 +38,5 @@
     </div>
 {% endblock %}
 {% block js %}
-    <script src="{{asset("js/deleteYourProfile.js")}}"></script>
+    <script src='{{asset("js/deleteYourProfile.js")}}'></script>
 {% endblock %}
