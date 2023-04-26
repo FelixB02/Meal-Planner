@@ -2,74 +2,119 @@
 
 {% block title %}Week index{% endblock %}
 {% block stylesheets %}
-<style>
-    .heading {
-        font-weight: bold;
-        text-align: center;
-    }
-</style>
+<link href="{{ asset('css/weekindex.css') }}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block body %}
-    <h1>Week index</h1>
-        <div class="container">
-            <div class="row">
-                {% if monday.name is defined %}
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                <div class="card" style="width: 18rem;">
-                    <img height="180px" src="{{asset("uploads/" ~ monday.picture)}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">{{monday.name}}(monday)</h5>
-                      <a href="#" class="btn btn-primary">See Details</a>
-                    </div>
+    <h1 class="headline"><img src="https://img.icons8.com/windows/100/FFFFFF/weekend.png"/>The Weekly Plan</h1>
+
+
+<div class="container">
+  <div class="row ">
+  <div class="col-2">
+      <button class="btn btn-primary .mx-auto" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Monday</button>
+      <button class="btn btn-primary m-2" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Tuesday</button>
+      <button class="btn btn-primary m-2" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Wednesday</button>
+      <button class="btn btn-primary m-2" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">Thursday</button>
+      <button class="btn btn-primary m-2" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5">Friday</button>
+      <button class="btn btn-primary m-2" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample6" aria-expanded="false" aria-controls="multiCollapseExample6">Saturday</button>
+      <button class="btn btn-primary m-2" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample7" aria-expanded="false" aria-controls="multiCollapseExample7">Sunday</button>
+      <button class="btn btn-primary m-2" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3 multiCollapseExample4 multiCollapseExample5  multiCollapseExample6  multiCollapseExample7">show/hide all days</button>
+  </div>
+
+  <div class="col-10">
+  <div class="row gx-4 ">
+
+    <div class="col-lg-4 col-md-6">
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        {% if monday.name is defined %}
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+        <div class="card" style="width: 18rem;">
+            <img height="180px" src="{{asset("uploads/" ~ monday.picture)}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{monday.name}}(monday)</h5>
+              <a href="#" class="btn btn-primary">See Details</a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="collapse multi-collapse" id="multiCollapseExample2">
+        {% if tuesday.name is defined %}
+              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+              <div class="card" style="width: 18rem;">
+                  <img height="180px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{tuesday.name}}(tuesday)</h5>
+                    <a href="#" class="btn btn-primary">See Details</a>
                   </div>
                 </div>
-                {% endif %}
-                {% if tuesday.name is defined %}
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                <div class="card" style="width: 18rem;">
-                    <img height="180px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">{{tuesday.name}}(tuesday)</h5>
-                      <a href="#" class="btn btn-primary">See Details</a>
-                    </div>
-                  </div>
+              </div>
+              {% endif %}
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="collapse multi-collapse" id="multiCollapseExample3">
+        {% if wednesday.name is defined %}
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+        <div class="card" style="width: 18rem;">
+            <img height="180px" src="{{asset("uploads/" ~ wednesday.picture)}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{wednesday.name}}(wednesday)</h5>
+              <a href="#" class="btn btn-primary">See Details</a>
+            </div>
+          </div>
+        </div>
+        {% else %}
+            <div class="card card-body">no meal added yet, check the recipe and fill your program</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="collapse multi-collapse" id="multiCollapseExample4">
+        {% if thursday.name is defined %}
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <div class="card" style="width: 18rem;">
+                <img height="180px" src="{{asset("uploads/" ~ thursday.picture)}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title text-center">{{thursday.name}}(thursday)</h5>
+                <a href="#" class="btn btn-primary">See Details</a>
                 </div>
-                {% endif %}
-                {% if wednesday.name is defined %}
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                <div class="card" style="width: 18rem;">
-                    <img height="180px" src="{{asset("uploads/" ~ wednesday.picture)}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">{{wednesday.name}}(wednesday)</h5>
-                      <a href="#" class="btn btn-primary">See Details</a>
-                    </div>
-                  </div>
-                </div>
-                {% endif %}
-                {% if thursday.name is defined %}
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                    <div class="card" style="width: 18rem;">
-                        <img height="180px" src="{{asset("uploads/" ~ thursday.picture)}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                        <h5 class="card-title text-center">{{thursday.name}}(thursday)</h5>
-                        <a href="#" class="btn btn-primary">See Details</a>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-                {% if friday.name is defined %}
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                <div class="card" style="width: 18rem;">
-                    <img height="180px" src="{{asset("uploads/" ~ friday.picture)}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">{{friday.name}}(friday)</h5>
-                      <a href="#" class="btn btn-primary">See Details</a>
-                    </div>
-                  </div>
-                </div>
-                {% endif %}
-                {% if saturday.name is defined %}
+            </div>
+        </div>
+        {% else %}
+      <div class="card card-body">no meal added yet, check the recipe and fill your program</div>
+        {% endif %}
+      </div>
+    </div>
+
+
+    <div class="col-lg-4 col-md-6">
+      <div class="collapse multi-collapse" id="multiCollapseExample5">
+        {% if friday.name is defined %}
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+        <div class="card" style="width: 18rem;">
+            <img height="180px" src="{{asset("uploads/" ~ friday.picture)}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{friday.name}}(friday)</h5>
+              <a href="#" class="btn btn-primary">See Details</a>
+            </div>
+          </div>
+        </div>
+        {% else %}
+            <div class="card card-body">no meal added yet, check the recipe and fill your program</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="collapse multi-collapse" id="multiCollapseExample6">
+        {% if saturday.name is defined %}
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="card" style="width: 18rem;">
                     <img height="180px" src="{{asset("uploads/" ~ saturday.picture)}}" class="card-img-top" alt="...">
@@ -79,18 +124,34 @@
                     </div>
                   </div>
                 </div>
+                {% else %}
+              <div class="card card-body">no meal added yet, check the recipe and fill your program</div>
                 {% endif %}
-                {% if sunday.name is defined %}
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                <div class="card" style="width: 18rem;">
-                    <img height="180px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">{{tuesday.name}}(sunday)</h5>
-                      <a href="#" class="btn btn-primary">See Details</a>
-                    </div>
-                  </div>
-                </div>
-                {% endif %}
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="collapse multi-collapse" id="multiCollapseExample7">
+        {% if sunday.name is defined %}
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+        <div class="card h-100" style="width: 18rem;">
+            <img width="288px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{tuesday.name}}(sunday)</h5>
+              <a href="#" class="btn btn-primary">See Details</a>
             </div>
+          </div>
         </div>
+        {% else %}
+      <div class="card card-body">no meal added yet, check the recipe and fill your program</div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+
+
+  </div>
+  </div>  
+</div>        
 {% endblock %}
