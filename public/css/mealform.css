@@ -1,4 +1,4 @@
-body, .myform{
+body{
     background: linear-gradient(90deg, rgba(183,184,217,0.4077030470391282) 60%, rgba(77,102,202,0.21162461566657909) 100%);
 }
 
@@ -15,7 +15,6 @@ body, .myform{
     margin-top: 5cm;
     margin-bottom: 5cm;
     margin-top: 0.5rem;
-    background-color: white;
     width: 484px !important;
     display: flex;
     flex-direction: column;
