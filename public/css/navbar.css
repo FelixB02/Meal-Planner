@@ -77,8 +77,8 @@
 }
 
 .logoutinfo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -117,6 +117,7 @@
   border: none;
   text-decoration: none;
   margin-right: 2rem;
+  border-radius: 10px;
 }
 
 
