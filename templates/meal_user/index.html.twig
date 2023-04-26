@@ -14,16 +14,15 @@
    
 
     <div class="container my-4">
-    <h1 class="my-5 text-center">Check the Recipes ....</h1 >
-      <a class="btn btn-warning mb-2" class=""href="{{ path('app_home') }}" >Home</a><br>
-    <a class="btn btn-primary" href="{{ path('app_meal_user_new') }}">Create new meal</a>
+    <h1 class="my-5 text-center myhead">Check the Recipes ....</h1 >
+    <a class="mybtn" href="{{ path('app_meal_user_new') }}">Create new meal</a>
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
   
         {% for meal in meals %}
    
         <div class="col">
           <div class="card h-100">
-            <img src="../../uploads/{{ meal.picture }}" class="card-img-top img-fluid" alt="...">
+            <a href="{{ path('app_meal_user_show', {'id': meal.id}) }}"><img src="../../uploads/{{ meal.picture }}" class="card-img-top img-fluid" alt="..."></a>
             <div class="card-body">
               <h5 class="card-title">{{ meal.name }}</h5>
               <p class="card-text">{{ meal.preparation }} <a href="{{ path('app_meal_user_show', {'id': meal.id}) }}">show more ...</a>.</p>

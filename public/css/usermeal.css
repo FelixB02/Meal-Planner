@@ -3,7 +3,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
+  color: white;
 }
 
 .card {
@@ -55,4 +55,17 @@ h1 {
   margin: 0 auto;
   text-align: center;
   font-size: 2.3rem;
+}
+
+.mybtn {
+background-color: #04AA6D;
+color: white;
+padding: 16px;
+font-size: 16px;
+border: none;
+text-decoration: none;
+}
+
+.myhead {
+  color: white;
 }

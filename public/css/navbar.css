@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
 
 .custom {
-
+  /* height: 80px; */
   background: linear-gradient(to right, rgba(108, 175, 91, 255), #b4d4b0)
 }
 
@@ -38,9 +38,17 @@
   background-color: #e74c3c;
 }
 
+#logo {
+  height: 3.6rem;
+}
+
+.navlogo {
+  padding-bottom: 0 !important;
+}
+
 .logoo {
   color: #eff0e8 !important;
-  font-size: 1cm !important;
+  font-size: 1.8rem !important;
 }
 
 .nav-name {
@@ -63,6 +71,17 @@
   align-items: center;
 }
 
+.home-image {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.logoutinfo {
+    display: flex;
+    align-items: center;
+}
+
+
 @media screen and (max-width: 992px) {
   .login-name {
     margin-left: -16px;
@@ -72,8 +91,70 @@
   }
 
   .home-image {
-    margin-left: -50px;
+    margin-left: -1.7rem;
+    margin-top: 0.4rem;
   }
 
+  .dropbtn {
+    margin-left: 1rem;
+  }
 
+  .logoutinfo img {
+    margin-left: .3rem;
+  }
+
+  li a span {
+    display: none;
+  }
+}
+
+
+.dropbtn {
+  background-color: #0bc480;
+  color: white;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  text-decoration: none;
+  margin-right: 2rem;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #0bc480;
 }

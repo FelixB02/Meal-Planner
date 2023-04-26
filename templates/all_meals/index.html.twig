@@ -88,10 +88,10 @@
       role="tabpanel"
       aria-labelledby="ex1-tab-1">
       {# ALL MEALS  #}
-           <div class="row">
+           <div class="row" style="margin: 0;">
                     {% for meal in meals %}
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                        <div class="card" style="height: 30rem; margin-bottom:1rem;">
+                        <div class="card" style="height: 30rem;">
                             <img height="260px" src="{{asset('uploads/' ~ meal.picture)}}" alt="{{meal.name}}">              
                             <div class="card-body">
                                 <h5 class="card-title text-center"> {{meal.name}}</h5>
