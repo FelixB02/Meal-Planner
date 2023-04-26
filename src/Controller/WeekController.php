@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Week;
 use App\Form\WeekType;
 use App\Repository\MealRepository;

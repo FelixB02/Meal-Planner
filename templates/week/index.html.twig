@@ -34,9 +34,7 @@
             <img height="180px" src="{{asset("uploads/" ~ monday.picture)}}" class="card-img-top" alt="...">
             <div class="card-body" style="height: 200px;">
               <h5 class="card-title text-center">{{monday.name}}(monday)</h5>
-              <div class="text-center">
-              <a href="#" class="btn btn-primary">See Details</a>
-              </div>
+              <a href="{{ path('app_meal_detail', {'id': monday.id}) }}" class="btn btn-primary">See Details</a>
             </div>
           </div>
         {# </div> #}
@@ -54,9 +52,7 @@
                   <img height="180px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
                   <div class="card-body" style="height: 200px;">
                     <h5 class="card-title text-center">{{tuesday.name}}(tuesday)</h5>
-                    <div class="text-center">
-                    <a href="#" class="btn btn-primary">See Details</a>
-                    </div>
+                    <a href="{{ path('app_meal_detail', {'id': tuesday.id}) }}" class="btn btn-primary">See Details</a>
                   </div>
                 </div>
               {# </div> #}
@@ -74,9 +70,7 @@
             <img height="180px" src="{{asset("uploads/" ~ wednesday.picture)}}" class="card-img-top" alt="...">
             <div class="card-body" style="height: 200px;">
               <h5 class="card-title text-center">{{wednesday.name}}(wednesday)</h5>
-              <div class="text-center">
-              <a href="#" class="btn btn-primary">See Details</a>
-              </div>
+              <a href="{{ path('app_meal_detail', {'id': wednesday.id}) }}" class="btn btn-primary">See Details</a>
             </div>
           </div>
         {# </div> #}
@@ -94,8 +88,7 @@
                 <img height="180px" src="{{asset("uploads/" ~ thursday.picture)}}" class="card-img-top" alt="...">
                 <div class="card-body" style="height: 200px;">
                 <h5 class="card-title text-center">{{thursday.name}}(thursday)</h5>
-                <div class="text-center">
-                <a href="#" class="btn btn-primary">See Details</a>
+                <a href="{{ path('app_meal_detail', {'id': thursday.id}) }}" class="btn btn-primary">See Details</a>
                 </div>
                 </div>
             </div>
@@ -115,9 +108,7 @@
             <img height="180px" src="{{asset("uploads/" ~ friday.picture)}}" class="card-img-top" alt="...">
             <div class="card-body" style="height: 200px;">
               <h5 class="card-title text-center">{{friday.name}}(friday)</h5>
-              <div class="text-center">
-              <a href="#" class="btn btn-primary">See Details</a>
-              </div>
+              <a href="{{ path('app_meal_detail', {'id': friday.id}) }}" class="btn btn-primary">See Details</a>
             </div>
           </div>
         {# </div> #}
@@ -135,9 +126,7 @@
                     <img height="180px" src="{{asset("uploads/" ~ saturday.picture)}}" class="card-img-top" alt="...">
                     <div class="card-body" style="height: 200px;">
                       <h5 class="card-title text-center">{{saturday.name}}(saturday)</h5>
-                      <div class="text-center">
-                      <a href="#" class="btn btn-primary">See Details</a>
-                      </div>
+                      <a href="{{ path('app_meal_detail', {'id': saturday.id}) }}" class="btn btn-primary">See Details</a>
                     </div>
                   </div>
                 {# </div> #}
@@ -155,9 +144,7 @@
             <img width="288px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
             <div class="card-body" style="height: 200px;">
               <h5 class="card-title text-center">{{tuesday.name}}(sunday)</h5>
-              <div class="text-center">
-                <a href="#" class="btn btn-primary">See Details</a>
-              </div>
+              <a href="{{ path('app_meal_detail', {'id': sunday.id}) }}" class="btn btn-primary text-center">See Details</a>
             </div>
           </div>
         {# </div> #}
