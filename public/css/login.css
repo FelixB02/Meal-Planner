@@ -97,12 +97,32 @@ button[type="submit"]:hover {
   background-color: #494E30;
 }
 
+/* @media screen and (max-width: 600px) {
+  .form-right {
+    margin-top: 3rem !important;
+  }
+
+  form {
+    width: 60rem;
+  }
+
+  .form-left {
+    width: 80%;
+  }
+}
+ */
+
+
 @media screen and (max-width: 991px) {
   .form-right {
     margin-top: 3rem !important;
   }
 
   form {
-    width: 650px;
+    width: 25rem;
+  }
+
+  .form-left {
+    width: 75%;
   }
 }
