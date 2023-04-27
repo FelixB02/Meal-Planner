@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary custom">
   <div class="container-fluid">
     <a class="navbar-brand logoo navlogo" href="/"><img id="logo" src="../../pictures/logo-white.png"
-        alt="">Healthymeal</a>
+        alt="" style="size: 4rem;">Healthymeal</a>
     <button class="navbar-dark navbar-toggler" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
       aria-label="Toggle navigation">
@@ -27,7 +27,7 @@
           <a class="nav-link logoo" href="/admin/meal">Admin <span>|</span></a>
           {% elseif is_granted('ROLE_USER') %}
           <li><a class="nav-link logoo" href="/week/">Planner <span>|</span></a></li>
-          <a class="nav-link logoo" href="/user/meal/">My Recipe's</a>
+          <a class="nav-link logoo" href="/user/meal/">My Recipes</a>
           {% else %}
 
           {% endif %}
@@ -47,8 +47,8 @@
               <button type="button" class="dropbtn11 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
                 aria-haspopup="true">{{app.user.fname ~ " " ~ app.user.lname}}</button>
               <div class="dropdown-menu dropdown-content">
+                <a href="{{ path('app_editself_index', {'id': app.user.id}) }}">My Profile</a>
                 <a href="{{ path('app_logout') }}">Logout</a>
-                <a href="{{ path('app_editself_index', {'id': app.user.id}) }}">Your Profile</a>
               </div>
             </div>
           </div>

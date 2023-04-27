@@ -69,7 +69,15 @@ border-radius: 10px;
 
 .myhead {
   color: white;
+  margin-top: 3px;
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Fredericka the Great', cursive;
+  font-weight: 400;
+  font-size: 1.8cm;
 }
+
+
 
 .dropbtn {
   border-radius: 10px;

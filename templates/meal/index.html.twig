@@ -79,7 +79,7 @@
                     <td class="tablevertical tableentry"><a href="{{ path('app_meal_show', {'id': meal.id}) }}"><img height="130px" width="215px"  src="{{asset("uploads/" ~ meal.picture)}}" alt="..."></a></td>
                     <td class="tablevertical tableentry">{{ meal.name }}</td>
                     <td class="tablevertical tableentry">{{ meal.category }}</td>
-                    <td class="tablevertical tableentry"><a style="color: #6274D1" href="{{ path('app_meal_show', {'id': meal.id}) }}">Show Meal</a></td>
+                    <td class="tablevertical tableentry"><a class="btn btn-info mybtn mb-3 mb-md-0" style="color: white" href="{{ path('app_meal_show', {'id': meal.id}) }}">Show Meal</a></td>
                     <td class="tablevertical tableentry">
                         <a class="btn btn-success mybtn mb-3 mb-md-0" href="{{ path('app_meal_edit', {'id': meal.id}) }}">Edit</a>
                         <button onclick="deleteswal('{{meal.id}}')" class="btn btn-danger mybtn">Delete</button>

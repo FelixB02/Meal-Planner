@@ -15,13 +15,13 @@
   <img src="../uploads/{{ meal.picture }}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{ meal.name }}</h5>
-    <p class="card-text">{{ meal.preparation }}</p>
+    <p class="card-text HMtext">{{ meal.preparation }}</p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><img src="https://img.icons8.com/ios/40/null/category.png"/> Category:{{ meal.category }}</li>
-    <li class="list-group-item"><img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/40/null/external-calories-fitness-at-home-flaticons-lineal-color-flat-icons-2.png"/> Calories:{{ meal.calories }}</li>
-    <li class="list-group-item"><img src="https://img.icons8.com/dotty/40/null/time.png"/> Time:{{ meal.cookingTime }}</li>
-    <li class="list-group-item"><img src="https://img.icons8.com/external-outline-berkahicon/40/null/external-ingredient-linely-baking-outline-berkahicon.png"/> Ingredients{% for ing in ingredient %}
+    <li class="list-group-item"><img src="https://img.icons8.com/ios/40/null/category.png"/> <span class="bold-headers">Category:</span>{{ meal.category }}</li>
+    <li class="list-group-item"><img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/40/null/external-calories-fitness-at-home-flaticons-lineal-color-flat-icons-2.png"/><span class="bold-headers">Calories:</span>{{ meal.calories }}</li>
+    <li class="list-group-item"><img src="https://img.icons8.com/dotty/40/null/time.png"/><span class="bold-headers">Time:</span>{{ meal.cookingTime }}</li>
+    <li class="list-group-item"><img src="https://img.icons8.com/external-outline-berkahicon/40/null/external-ingredient-linely-baking-outline-berkahicon.png"/><span class="bold-headers"> Ingredients:</span>{% for ing in ingredient %}
             
                 
              <ul>
@@ -32,7 +32,7 @@
   </ul>
   <div class="card-body">
     <a class="btn btn-warning" href="{{ path('app_meal_edit', {'id': meal.id}) }}" class="card-link"><img src="https://img.icons8.com/ios-filled/25/null/edit--v1.png"/>Edit</a>
-    <button class="btn btn-danger" onclick="deleteswal('{{meal.id}}')">Delete</button>
+    <button class="btn btn-danger" onclick="deleteswal('{{meal.id}}')"><img src="https://img.icons8.com/wired/25/null/filled-trash.png"/>Delete</button>
   </div>
 </div>
 

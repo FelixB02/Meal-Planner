@@ -15,7 +15,7 @@
 {% block body %}
         {% include "components/navbar.html" %}
 
-    <h1 class = "d-flex align-items-center justify-content-center" style="font-size: 3.3rem; margin-top: 1rem;">All Meals</h1>
+    <h1 class = "d-flex align-items-center justify-content-center" style="font-size: 5rem; margin-top: 1rem;">All Meals</h1>
     <p class = "d-flex align-items-center justify-content-center" style="color: white; font-size: 1.2rem;"> Find here all existing recipes on this page, sorted by category </p>
   
     <!-- Browse Categories -->
@@ -97,9 +97,11 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center"> {{meal.name}}</h5>
                                 <p class="card-text text-center">
-                                    {{meal.rating}} Stars (rated by Users)
+                                    {{meal.rating}}/5 (rated by User)
                                 </p>
-                                <a class="dropbtn" href="{{ path('app_meal_detail', {'id': meal.id}) }}">Details</a>
+                                <p class="text-center">
+                                <a class="dropbtn text-center" href="{{ path('app_meal_detail', {'id': meal.id}) }}">Details</a>
+                                </p> 
                             </div>
                         </div>
                     </div>
