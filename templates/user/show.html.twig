@@ -6,9 +6,9 @@
 {% endblock %}
 {% block body %}
 
-    <div class="container mt-5">
-         <h1>User details</h1>
-         <div class="card mb-10" style="max-width: 900px;">
+    <div class="container mt-5 d-flex flex-column justify-content-center align-items-center">
+         <h1 class="text-center" style="color: #4d4f64; font-family: 'Fredericka the Great', cursive; font-weight: 400; font-size: 1.8cm;">User Profile</h1>
+         <div class="card mb-10" style="max-width: 1000px;">
         <div class="row g-0">
             <div class="col-md-6">
             <img src="{{ asset('/uploads/' ~ user.image) }}" class="img-fluid rounded-start w-100 h-100 rounded-pill" alt="...">
