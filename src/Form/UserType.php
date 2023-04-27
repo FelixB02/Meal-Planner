@@ -21,41 +21,43 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             ->add('fname', TextType::class, [
-            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']  
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'], "label" => "First Name: "
             ])
             ->add('lname', TextType::class, [
-            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'], "label" => "Last Name: "
             ])
             ->add('date_of_birth', DateType::class, [
-            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
-            'widget' => 'single_text',
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
+                'widget' => 'single_text',
             ])
             ->add('phone', TextType::class, [
-            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             ->add('gender', ChoiceType::class, [
-            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
-            'choices' =>[
-                'Male' => "Male",
-                'Female' => "Female",
-                'Divers' => "Divers"],
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
+                'choices' => [
+                    'Male' => "Male",
+                    'Female' => "Female",
+                    'Divers' => "Divers"
+                ],
             ])
             ->add('blocked', ChoiceType::class, [
-            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
-            'choices' =>[
-                'False' => "0",
-                'True' => "1",],
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
+                'choices' => [
+                    'False' => "0",
+                    'True' => "1",
+                ],
             ])
             ->add('image', FileType::class, [
                 'label' => 'Picture (Image File)',
 
                 'mapped' => false,
-    
+
                 'required' => false,
-    
+
                 'constraints' => [
                     new File([
                         'maxSize' => '1024k',

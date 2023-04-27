@@ -21,7 +21,7 @@ class MealType extends AbstractType
 
         $builder
             ->add('name', TextType::class, [
-                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                'attr' => ['class' => 'form-control', "placeholder" => "Write the Meal Name", 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             ->add('picture', FileType::class, [
                 'label' => 'Picture (Image File)',
@@ -32,7 +32,7 @@ class MealType extends AbstractType
 
                 'constraints' => [
                     new File([
-                        'maxSize' => '1024k',
+                        'maxSize' => '10000k',
                         'mimeTypes' => [
                             'image/png',
                             'image/jpg',
@@ -46,7 +46,7 @@ class MealType extends AbstractType
             ->add('category', ChoiceType::class, [
                 'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
                 'choices' => [
-                    '' => null,
+                    'Category:' => null,
                     'Veggie' => "Veggie",
                     'Vegan' => "Vegan",
                     'Meat' => "Meat",
@@ -54,19 +54,19 @@ class MealType extends AbstractType
                 ],
             ])
             ->add('calories', NumberType::class, [
-                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                'attr' => ['class' => 'form-control', "placeholder" => "Write the the Calories an Number", 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             ->add('rating', Numbertype::class, [
-                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                'attr' => ['class' => 'form-control', "placeholder" => "Write a Rating from 1 to 5", 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             ->add('preparation', TextareaType::class, [
-                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                'attr' => ['class' => 'form-control', "placeholder" => "Write the Preparation for the Meal", 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             ->add('cooking_time', Numbertype::class, [
-                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;']
+                'attr' => ['class' => 'form-control', "placeholder" => "Write the Cooking Time in Minutes", 'style' => 'margin-bottom:15px; width: 95%;']
             ])
             ->add('ingredients', TextType::class, [
-                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px; width: 95%;'],
+                'attr' => ['class' => 'form-control', "placeholder" => "Write the Ingredients", 'style' => 'margin-bottom:15px; width: 95%;'],
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'Submit',
