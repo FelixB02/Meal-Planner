@@ -46,7 +46,7 @@
             <div class="dropdown">
               <button type="button" class="dropbtn11 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
                 aria-haspopup="true">{{app.user.fname ~ " " ~ app.user.lname}}</button>
-              <div class="dropdown-menu dropdown-content">
+              <div class="dropdown-menu dropdown-content" style="margin-right: 4px !important">
                 <a href="{{ path('app_editself_index', {'id': app.user.id}) }}">My Profile</a>
                 <a href="{{ path('app_logout') }}">Logout</a>
               </div>
