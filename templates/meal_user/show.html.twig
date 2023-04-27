@@ -92,7 +92,7 @@
   </ul>
   <div class="card-body">
     <a class="btn btn-warning" href="{{ path('app_meal_user_edit', {'id': meal.id}) }}" class="card-link"><img src="https://img.icons8.com/ios-filled/25/null/edit--v1.png"/>Edit</a>
-    <button class="btn btn-danger" onclick="deleteswal('app_meal_user_delete')"><img src="https://img.icons8.com/wired/25/null/filled-trash.png"/>Delete</button>
+    <button class="btn btn-danger" onclick="deleteswal('{{meal.id}}')"><img src="https://img.icons8.com/wired/25/null/filled-trash.png"/>Delete</button>
   </div>
 </div>
     <div class="container d-flex p-5"><a class="btn btn-success mx-auto" href="{{ path('app_meal_user_index') }}"><img src="https://img.icons8.com/sf-regular-filled/50/null/circled-left--v2.png"/> back to list</a> </div>

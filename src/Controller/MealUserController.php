@@ -103,4 +103,20 @@ class MealUserController extends AbstractController
 
         return $this->redirectToRoute('app_meal_user_index',);
     }
+
+    // #[Route('/meal{id}/delete', name: 'app_meal_delete')]
+    // public function delete(ManagerRegistry $doctrine, $id)
+    // {
+    //     $em = $doctrine->getManager();
+    //     $meal = $doctrine->getRepository(Meal::class)->find($id);
+    //     $image = $meal->getPicture();
+    //     if (file_exists($this->getParameter("image_directory") . $image)) {
+    //         unlink($this->getParameter("image_directory") . $image);
+    //     }
+
+    //     $em->remove($meal);
+    //     $em->flush();
+
+    //     return $this->redirectToRoute('app_meal_index');
+    // }
 }
