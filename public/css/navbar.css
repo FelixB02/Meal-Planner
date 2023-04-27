@@ -40,11 +40,9 @@
 
 #logo {
   height: 6rem;
-  filter: drop-shadow(3px 3px 1px black)!important;
+  filter: drop-shadow(3px 3px 1px black) !important;
 
 }
-
-
 
 .navlogo {
   padding-bottom: 0 !important;
@@ -167,4 +165,9 @@ li a:hover {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   background-color: #0bc480;
+}
+
+/* ----------------------------------- nav ------------------------------- */
+.logoo:hover {
+  color: #62f9c1 !important;
 }
