@@ -39,7 +39,8 @@
 }
 
 #logo {
-  height: 6rem;
+  margin-top: -10px;
+  height: 5rem;
   filter: drop-shadow(3px 3px 1px black) !important;
 
 }
