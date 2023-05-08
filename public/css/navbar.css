@@ -39,17 +39,20 @@
 }
 
 #logo {
-  height: 3.6rem;
+  margin-top: -10px;
+  height: 5rem;
+  filter: drop-shadow(3px 3px 1px black) !important;
+
 }
 
 .navlogo {
   padding-bottom: 0 !important;
-  font-size: 1.7rem !important;
 }
 
 .logoo {
   color: #eff0e8 !important;
   font-size: 1.5rem !important;
+  filter: drop-shadow(3px 3px 1px #69C20E);
 }
 
 .nav-name {
@@ -80,6 +83,10 @@
 .logoutinfo {
   display: flex;
   align-items: center;
+}
+
+li a:hover {
+  color: red;
 }
 
 

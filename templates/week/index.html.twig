@@ -33,8 +33,13 @@
         <div class="card mb-4" style="width: 100%;">
             <img height="180px" src="{{asset("uploads/" ~ monday.picture)}}" class="card-img-top" alt="...">
             <div class="card-body" style="height: 200px;">
-              <h5 class="card-title text-center">{{monday.name}}(monday)</h5>
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/monday.png"/>monday</h5>
+              <h5 class="card-title text-center">{{monday.name}}</h5>
+              <div class="text-center">
               <a href="{{ path('app_meal_detail', {'id': monday.id}) }}" class="btn btn-primary">See Details</a>
+
+              </div>
+
             </div>
           </div>
         {# </div> #}
@@ -51,8 +56,13 @@
               <div class="card mb-4" style="width: 100%;">
                   <img height="180px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
                   <div class="card-body" style="height: 200px;">
-                    <h5 class="card-title text-center">{{tuesday.name}}(tuesday)</h5>
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/tuesday.png"/>tuesday</h5>
+                    <h5 class="card-title text-center">{{tuesday.name}}</h5>
+                    <div class="text-center">
                     <a href="{{ path('app_meal_detail', {'id': tuesday.id}) }}" class="btn btn-primary">See Details</a>
+
+                    </div>
+
                   </div>
                 </div>
               {# </div> #}
@@ -69,8 +79,13 @@
         <div class="card mb-4" style="width: 100%;">
             <img height="180px" src="{{asset("uploads/" ~ wednesday.picture)}}" class="card-img-top" alt="...">
             <div class="card-body" style="height: 200px;">
-              <h5 class="card-title text-center">{{wednesday.name}}(wednesday)</h5>
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/wednesday.png"/>wednesday</h5>
+              <h5 class="card-title text-center">{{wednesday.name}}</h5>
+              <div class="text-center">
               <a href="{{ path('app_meal_detail', {'id': wednesday.id}) }}" class="btn btn-primary">See Details</a>
+
+              </div>
+
             </div>
           </div>
         {# </div> #}
@@ -87,8 +102,13 @@
             <div class="card mb-4" style="width: 100%;">
                 <img height="180px" src="{{asset("uploads/" ~ thursday.picture)}}" class="card-img-top" alt="...">
                 <div class="card-body" style="height: 200px;">
-                <h5 class="card-title text-center">{{thursday.name}}(thursday)</h5>
-                <a href="{{ path('app_meal_detail', {'id': thursday.id}) }}" class="btn btn-primary">See Details</a>
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/thursday.png"/>Thursday</h5>
+                <h5 class="card-title text-center">{{thursday.name}}</h5>
+                <div class="text-center">
+                <div class"text-center"><a href="{{ path('app_meal_detail', {'id': thursday.id}) }}" class="btn btn-primary">See Details</a></div>
+
+                </div>
+
                 </div>
                 </div>
             
@@ -107,8 +127,14 @@
         <div class="card mb-4" style="width: 100%;">
             <img height="180px" src="{{asset("uploads/" ~ friday.picture)}}" class="card-img-top" alt="...">
             <div class="card-body" style="height: 200px;">
-              <h5 class="card-title text-center">{{friday.name}}(friday)</h5>
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/friday.png"/>Friday</h5>
+
+              <h5 class="card-title text-center">{{friday.name}}</h5>
+              <div class="text-center">
               <a href="{{ path('app_meal_detail', {'id': friday.id}) }}" class="btn btn-primary">See Details</a>
+
+              </div>
+
             </div>
           </div>
         {# </div> #}
@@ -125,8 +151,11 @@
                 <div class="card mb-4" style="width: 100%;">
                     <img height="180px" src="{{asset("uploads/" ~ saturday.picture)}}" class="card-img-top" alt="...">
                     <div class="card-body" style="height: 200px;">
-                      <h5 class="card-title text-center">{{saturday.name}}(saturday)</h5>
+                       <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/saturday.png"/>Saturday</h5>
+                      <h5 class="card-title text-center">{{saturday.name}}</h5>
+                      <div class="text-center">
                       <a href="{{ path('app_meal_detail', {'id': saturday.id}) }}" class="btn btn-primary">See Details</a>
+                      </div>
                     </div>
                   </div>
                 {# </div> #}
@@ -140,11 +169,16 @@
       <div class="collapse multi-collapse col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12" id="multiCollapseExample7">
         {% if sunday.name is defined %}
         {# <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12"> #}
-        <div class="card h-100 mb-4" style="width: 100%;">
+        <div class="card mb-4" style="width: 100%;">
             <img width="288px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
             <div class="card-body" style="height: 200px;">
-              <h5 class="card-title text-center">{{tuesday.name}}(sunday)</h5>
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/sunday.png"/>Sunday</h5>
+              <h5 class="card-title text-center">{{tuesday.name}}</h5>
+
+              <div class="text-center">
               <a href="{{ path('app_meal_detail', {'id': sunday.id}) }}" class="btn btn-primary text-center">See Details</a>
+              </div>
+
             </div>
           </div>
         {# </div> #}
@@ -152,7 +186,6 @@
       <div class="card card-body" style="height: 200px;">no meal added yet, check the recipe and fill your program</div>
         {% endif %}
       </div>
-
 
   </div>
   </div>

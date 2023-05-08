@@ -37,7 +37,7 @@
   color: #69C20E;
 }
 
-.hero-section {
+/* .hero-section {
   height: 500px;
   background-size: cover;
   background-position: center;
@@ -46,7 +46,7 @@
   justify-content: center;
   background-image: url(../../pictures/hero.jpg);
 
-}
+} */
 
 .hero-content {
   text-align: center;
