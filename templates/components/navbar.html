@@ -11,23 +11,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active logoo" aria-current="page" href="/">Home <span>|</span></a>
+          <a class="nav-link active logoo navanimation" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
 
-          <a class="nav-link logoo" href="/all/meals">Meals <span>|</span></a>
+          <a class="nav-link logoo navanimation" href="/all/meals">Meals</a>
         </li>
-        {# <li class="nav-item">
-
-          <a class="nav-link logoo" href="/week/">Planner <span>|</span></a>
-        </li> #}
         <li class="nav-item">
-
           {% if is_granted('ROLE_ADMIN') %}
-          <a class="nav-link logoo" href="/admin/meal">Admin <span>|</span></a>
+          <a class="nav-link logoo navanimation" href="/admin/meal">Admin</a>
           {% elseif is_granted('ROLE_USER') %}
-        <li><a class="nav-link logoo" href="/week/">Planner <span>|</span></a></li>
-        <a class="nav-link logoo" href="/user/meal/">My Recipes</a>
+        <li><a class="nav-link logoo navanimation" href="/week/">Planner</a></li>
+        <a class="nav-link logoo navanimation" href="/user/meal/">My Recipes</a>
         {% else %}
 
         {% endif %}
@@ -42,7 +37,6 @@
           <!--<button class="logout-button"><a href="/login">Login</a></button></div> -->
           {% if app.user %}
           <div class="login-name navbar-brand">
-            <img src="{{ asset('/uploads/' ~ app.user.image) }}" class="home-image">
             <div class="dropdown">
               <button type="button" id="mybtn" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
                 aria-haspopup="true">{{app.user.fname ~ " " ~ app.user.lname}}</button>
@@ -51,6 +45,7 @@
                 <a href="{{ path('app_logout') }}">Logout</a>
               </div>
             </div>
+            <img id="userimage" src="{{ asset('/uploads/' ~ app.user.image) }}" class="home-image">
           </div>
           {% else %}
           <div class="logoutinfo">

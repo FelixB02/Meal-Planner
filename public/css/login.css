@@ -145,7 +145,7 @@ label {
   border: 3px solid transparent;
   position: absolute;
   transform: rotate(45deg);
-  right: 0;
+  right: 100;
   top: 0;
   z-index: -1;
   transition: all .35s;
